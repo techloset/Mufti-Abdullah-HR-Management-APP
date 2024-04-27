@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String?
+  email    String  @unique
+  password String
+}
+
+model Employee {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  firstName         String
+  lastName          String
+  email             String    @unique
+  mobileNumber      String
+  maritalStatus     String
+  gender            String
+  nationality       String
+  address           String
+  city              String
+  state             String
+  zip               String
+  imageUrl          String
+  startDate         String
+  employeeID        String?
+  userName          String?
+  employeeType      String?
+  emailAddress      String?
+  department        String?
+  designation       String?
+  workingDays       String?
+  joinDate          String?
+  officeLocation    String?
+  appointmentLetter String?
+  salarySlips       String?
+  relivingLetter    String?
+  experienceLetter  String?
+  stockID           String?
+  skypeID           String?
+  githubID          String?
+  createdDate       DateTime?
+}

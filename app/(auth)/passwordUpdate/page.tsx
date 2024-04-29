@@ -1,67 +1,8 @@
 "use client";
-import Link from "next/link";
-import { useState } from "react";
-import { useSession } from "next-auth/react";
-import toast from "react-hot-toast";
+import usePasswordUpdate from "./usePasswordUpdate";
 
-type Change = {
-  target: {
-    name: string;
-    value: string;
-  };
-};
 export default function ChangePassword() {
-  const [oldPassword, setOldPassword] = useState("");
-
-  const [newPassword, setNewPassword] = useState("");
-
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const currentUser = useSession();
-  const currentUserEmail = currentUser.data?.user?.email;
-  console.log("currentUserEmail", currentUserEmail);
-
-  const handleChange = (e: Change) => {
-    const { name, value } = e.target;
-    if (name === "oldPassword") setOldPassword(value);
-    else if (name === "newPassword") setNewPassword(value);
-    else if (name === "confirmPassword") setConfirmPassword(value);
-  };
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    console.log(oldPassword, newPassword);
-    if (!oldPassword || !newPassword || !confirmPassword) {
-      alert("Please fill in all fields.");
-      return;
-    }
-    if (newPassword !== confirmPassword) {
-      alert("New password and confirm password do not match.");
-      return;
-    }
-    try {
-      const response = await fetch("http://localhost:3000/api/passwordUpdate", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: currentUserEmail,
-          oldPassword,
-          newPassword,
-        }),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to change password.");
-      }
-      console.log("Password changed successfully.");
-      toast.success("Password changed successfully.");
-    } catch (error) {
-      console.error("Error changing password:", error);
-      toast.error(`Error changing password: ${error}`);
-    }
-  };
-
+  const { handleChange, handleSubmit } = usePasswordUpdate();
   return (
     <section className="bg-black  h-screen flex p-4 justify-center items-center text-white  ">
       <div className="flex flex-col md:w-[445px] w-full justify-center py-8 items-center  lg:py-0">

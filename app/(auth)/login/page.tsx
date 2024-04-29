@@ -2,57 +2,13 @@
 import img from "../../assets/icons/Vector.svg";
 import React from "react";
 import Link from "next/link";
-import { useState } from "react";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
 import Loader from "@/app/components/loader/Loader";
+import uselogin from "./uselogin";
 
-type Change = {
-  target: {
-    name: string;
-    value: string;
-  };
-};
 function Login() {
-  const router = useRouter();
-  const [state, setState] = useState({ email: "", password: "" });
-  const [isLoading, setIsLoading] = useState(false);
-  const handleChange = (e: Change) =>
-    setState((s) => ({ ...s, [e.target.name]: e.target.value }));
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
-    try {
-      setIsLoading(true);
-      console.log("Submitting with state:", state);
-      const user = await signIn("credentials", {
-        ...state,
-        redirect: false,
-      });
-      console.log("signIn response:", user);
-
-      if (user && user.ok) {
-        toast("You Are successfully Login");
-        router.push("/");
-      } else {
-        if (user && user.error === "CredentialsSignin") {
-          toast("Invalid email or password");
-        } else {
-          toast("An error occurred while logging in");
-        }
-      }
-      setIsLoading(false);
-    } catch (error) {
-      console.log("Error:", error);
-      toast("An error occurred while logging in");
-    }
-  };
-
-  // const handleloginwithGoogle = () => {
-  //   signIn("google", { callbackUrl: "/" });
-  //   router.push("/");
-  // };
+  const { handleSubmit, handleChange, isLoading } = uselogin();
   return (
     <section className="bg-black  h-auto flex p-4 justify-center items-center text-white ">
       <div className="flex flex-col md:w-[445px] w-full justify-center py-8 items-center  lg:py-0">

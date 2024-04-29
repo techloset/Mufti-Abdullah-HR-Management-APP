@@ -8,6 +8,7 @@ import PaginationBar from "../paginationBar/PaginationBar";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import { deleteEmployee, fetchEmployees } from "@/redux/slices/employee";
 import { FormData } from "@/app/constants/Types";
+import SearchBar from "../searchBar/SearchBar";
 
 export default function AllEmployeeTable() {
   const dispatch = useAppDispatch();
@@ -41,14 +42,7 @@ export default function AllEmployeeTable() {
   return (
     <div className="border-[1px] rounded-lg mt-4 border-secondry p-2 w-auto overflow-x-auto ">
       <div className="flex  mx-5 my-5 flex-row justify-between items-center">
-        <div className="flex flex-row p-2 gap-4 me-5 h-[50px]  border-[1px] border-secondry rounded-md">
-          <Image src={ICON.SEARCH} alt="" />
-          <input
-            type="text"
-            placeholder="search"
-            className="p-2 text-white bg-black rounded hover:border-primary active:border-primary focus:border-primary focus:outline-none"
-          />
-        </div>
+        <SearchBar />
         <div className="flex flex-row gap-5">
           <Link href="/addEmployee">
             <button className="border-[1px] flex bg-primary flex-row items-center justify-center gap-3 rounded-lg text-white border-secondry p-2">

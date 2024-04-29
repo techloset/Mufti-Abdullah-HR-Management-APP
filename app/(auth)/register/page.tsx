@@ -2,35 +2,11 @@
 import img from "../../assets/icons/Vector.svg";
 import React from "react";
 import Link from "next/link";
-import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-type Change = {
-  target: {
-    name: string;
-    value: string;
-  };
-};
-function page() {
-  const router = useRouter();
-  const [state, setState] = useState({ email: "", password: "", name: "" });
-  const handleChange = (e: Change) =>
-    setState((s) => ({ ...s, [e.target.name]: e.target.value }));
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
-    const { email, password, name } = state;
-    await fetch("/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password, name }),
-    });
-    toast("You Are successfully registered");
+import useRegister from "./useRegister";
 
-    router.push("/login");
-  };
+function page() {
+  const { handleChange, handleSubmit } = useRegister();
   return (
     <section className="bg-black  h-auto flex p-4 justify-center items-center text-white  ">
       <div className="flex flex-col md:w-[445px] w-full justify-center py-8 items-center  lg:py-0">

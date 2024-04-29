@@ -26,7 +26,7 @@ const PersonalInformation: React.FC<PersonalInformationMainProps> = ({
   const handleDateChange = (date: Date) => {
     setFormData((prevData) => ({
       ...prevData,
-      startDate: date,
+      joinDate: date,
     }));
   };
 
@@ -117,7 +117,7 @@ const PersonalInformation: React.FC<PersonalInformationMainProps> = ({
       </div>
       <div className="flex w-[49%] flex-row justify-between border-2  text-white bg-transparent sm:text-sm rounded-lg  p-2.5  border-secondry focus:outline-none ">
         <DatePicker
-          selected={formData.startDate}
+          selected={formData.joinDate}
           onChange={handleDateChange}
           className="bg-transparent focus:outline-none"
         />

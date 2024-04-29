@@ -26,7 +26,7 @@ export type FormData = {
   department?: string;
   designation?: string;
   workingDays?: [];
-  joinDate?: string;
+  joinDate?: Date;
   officeLocation?: string;
   appointmentLetter?: string;
   salarySlips?: string;
@@ -36,6 +36,7 @@ export type FormData = {
   skypeID?: string;
   githubID?: string;
   id?: string;
+  createdDate: Date;
 };
 export type FormProps = {
   formData: FormData;
@@ -51,7 +52,12 @@ export type User = {
     email: string;
   };
 };
-
+export type Change = {
+  target: {
+    name: string;
+    value: string;
+  };
+};
 export type EmployeeData = {
   imageUrl?: string;
   userName?: string;

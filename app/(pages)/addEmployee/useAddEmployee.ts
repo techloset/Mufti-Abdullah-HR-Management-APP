@@ -32,12 +32,13 @@ const initailFormData: FormData = {
   stockID: "",
   skypeID: "",
   githubID: "",
+  joinDate: new Date(),
   startDate: new Date(),
+  createdDate: new Date(),
 };
 export default function useAddEmployee() {
   const dispatch = useAppDispatch();
   const [formData, setFormData] = useState<FormData>(initailFormData);
-  console.log("formData", formData);
   const [selectedTab, setSelectedTab] = useState(0);
   const show = true;
   const handleFormDataChange: React.Dispatch<React.SetStateAction<FormData>> = (
@@ -77,17 +78,18 @@ export default function useAddEmployee() {
       "stockID",
       "skypeID",
       "githubID",
+      "joinDate",
     ];
 
     const missingFields: Array<string> = requiredFields.filter(
       (field) => !formData[field]
     );
+    console.log("🚀 ~ handleSubmit ~ missingFields:", missingFields);
 
-    if (missingFields.length > 0) {
-      toast.error(
+    if (missingFields.length > 3) {
+      return toast.error(
         `Please fill out all required fields: ${missingFields.join(", ")}`
       );
-      return;
     }
     dispatch(addEmployee(formData as FormData))
       .then(() => {

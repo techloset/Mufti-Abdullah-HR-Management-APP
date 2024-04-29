@@ -20,23 +20,21 @@ function page() {
   const [state, setState] = useState({ email: "", password: "" });
   const handleChange = (e: Change) =>
     setState((s) => ({ ...s, [e.target.name]: e.target.value }));
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-
-    const email = state.email; // Extract email directly from state
-
-    if (!email) {
-      console.error("Email is required");
-      return;
-    }
-
     try {
-      const res = await axios.put("http://localhost:3000/api/user", {
-        email: email,
-        form: form,
+      const res = await fetch("http://localhost:3000/api/user", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: state.email,
+        }),
       });
 
-      const data = res.data;
+      const data = await res.json();
       console.log("🚀 ~ handleSubmit ~ data:", data);
 
       if (data.success) {
@@ -71,7 +69,6 @@ function page() {
               reset your password.
             </p>
             <form
-              ref={form}
               className="space-y-4 md:space-y-6 max-w-[445px]"
               onSubmit={handleSubmit}
             >

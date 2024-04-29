@@ -1,6 +1,5 @@
 import instance from "@/utils/Instance";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
 
 const initialState = {
   employeeData: [],
@@ -51,7 +50,7 @@ export const updateEmployee = createAsyncThunk(
   "employee/updateEmployee",
   async ({ id, data }: { id: any; data: any }) => {
     try {
-      const response = await axios.put(`employee`, {
+      const response = await instance.put(`employee`, {
         id,
         ...data,
       });

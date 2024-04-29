@@ -19,10 +19,15 @@ async function sendOTPToEmail(email: string, otp: string) {
   try {
     const templateParams = {
       to_email: email,
-      public_key: "Pg9LLfrnQL4JWSJQ6",
+      user_id: "Pg9LLfrnQL4JWSJQ6",
       otp: otp,
     };
-    await emailjs.send("service_yeajshs", "template_zqnz90q", templateParams);
+    await emailjs.send(
+      "service_yeajshs",
+      "template_zqnz90q",
+      templateParams,
+      "Pg9LLfrnQL4JWSJQ6"
+    );
     console.log("OTP sent successfully!");
   } catch (error) {
     console.error("Error sending OTP:", error);
@@ -49,7 +54,8 @@ export const PUT = async (request: NextRequest) => {
 
     const otp = generatePassword();
     console.log("🚀 ~ PUT ~ otp:", otp);
-    await sendOTPToEmail(email, otp);
+    const mailsend = await sendOTPToEmail(email, otp);
+    console.log("🚀 ~ PUT ~ mailsend:", mailsend);
 
     await prisma.user.update({
       where: { email },

@@ -1,3 +1,4 @@
+"use client";
 import ReactApexChart from "react-apexcharts";
 import { FormData } from "@/app/constants/types";
 import { fetchEmployees } from "@/redux/slices/employee";

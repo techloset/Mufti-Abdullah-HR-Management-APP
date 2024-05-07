@@ -7,16 +7,7 @@ import VIEW from "../../assets/icons/view.svg";
 import Image from "next/image";
 import React from "react";
 import useViewDepartment from "./useViewDepartment";
-
-export const EMPLOYEE_TABLE_HEAD = [
-  { heading: "Employee ID" },
-  { heading: "Employee Name" },
-  { heading: "Department" },
-  { heading: "Designation" },
-  { heading: "Type" },
-  { heading: "Status" },
-  { heading: "Action" },
-];
+import { EMPLOYEE_TABLE_HEAD } from "./employeeTableHeader";
 
 export default function Page() {
   const {

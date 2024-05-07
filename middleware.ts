@@ -9,4 +9,17 @@ export default withAuth(
   }
 );
 
-export const config = { matcher: ["/", "/dashboard"] };
+export const config = {
+  matcher: [
+    "/",
+    "/dashboard",
+    "/employees",
+    "/addEmployee",
+    "/viewEmployee",
+    "/departments",
+    "/viewDepartment",
+    "/attendence",
+    "/setting",
+    "/notification",
+  ],
+};

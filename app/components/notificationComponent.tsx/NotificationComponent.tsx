@@ -1,4 +1,4 @@
-import { HOMEICONS } from "@/app/constants/images";
+import USER from "../../assets/icons/Ellipse 1192.svg";
 import Image from "next/image";
 import React from "react";
 
@@ -7,11 +7,7 @@ export default function NotificationComponent() {
     <div className="flex flex-row py-3 justify-between">
       <div className="flex felx-row gap-4">
         <div className="w-[40px] h-[40px]">
-          <Image
-            src={HOMEICONS.USER}
-            alt="User"
-            className="w-[40px] h-[40px]"
-          />
+          <Image src={USER} alt="User" className="w-[40px] h-[40px]" />
         </div>
         <div className="flex flex-col">
           <h1 className="text-[16px] font-bold text-white">

@@ -1,6 +1,9 @@
 "use client";
-import { ADDEMPLOYEE, ICON, SIDEBAR } from "@/app/constants/images";
+
+import RIGHTARROW from "../../assets/icons/direction-right 01.svg";
 import Image from "next/image";
+import ATTENDENCE from "../../assets/icons/calendar-check.svg";
+import PROFILE from "../../assets/icons/Profile Photo.svg";
 import DatePicker from "react-datepicker";
 import React, { ChangeEvent } from "react";
 import "react-datepicker/dist/react-datepicker.css";
@@ -52,11 +55,7 @@ const PersonalInformationMain: React.FC<PersonalInformationMainProps> = ({
             className="w-[100px] h-[100px]"
           />
         ) : (
-          <Image
-            src={ADDEMPLOYEE.PROFILE}
-            alt="profile"
-            className="w-[100px] h-[100px]"
-          />
+          <Image src={PROFILE} alt="profile" className="w-[100px] h-[100px]" />
         )}
         <UploadButtonForImage
           className="w-[100px] outline-none"
@@ -130,7 +129,7 @@ const PersonalInformationMain: React.FC<PersonalInformationMainProps> = ({
           onChange={handleDateChange}
           className="bg-transparent focus:outline-none"
         />
-        <Image src={SIDEBAR.ATTENDENCE} alt="sidebar" width={20} height={20} />
+        <Image src={ATTENDENCE} alt="sidebar" width={20} height={20} />
       </div>
       <div className="flex w-[49%] flex-row justify-between border-2  text-white bg-transparent sm:text-sm rounded-lg   p-2.5  border-secondry focus:outline-none ">
         <InputDropDown
@@ -173,7 +172,7 @@ const PersonalInformationMain: React.FC<PersonalInformationMainProps> = ({
           onChange={handleChange}
         />
         <Image
-          src={ICON.RIGHTARROW}
+          src={RIGHTARROW}
           className="rotate-90"
           alt="sidebar"
           width={20}
@@ -190,7 +189,7 @@ const PersonalInformationMain: React.FC<PersonalInformationMainProps> = ({
           onChange={handleChange}
         />
         <Image
-          src={ICON.RIGHTARROW}
+          src={RIGHTARROW}
           className="rotate-90"
           alt="sidebar"
           width={20}
@@ -207,7 +206,7 @@ const PersonalInformationMain: React.FC<PersonalInformationMainProps> = ({
           onChange={handleChange}
         />
         <Image
-          src={ICON.RIGHTARROW}
+          src={RIGHTARROW}
           className="rotate-90"
           alt="sidebar"
           width={20}
@@ -224,7 +223,7 @@ const PersonalInformationMain: React.FC<PersonalInformationMainProps> = ({
           onChange={handleChange}
         />
         <Image
-          src={ICON.RIGHTARROW}
+          src={RIGHTARROW}
           className="rotate-90"
           alt="sidebar"
           width={20}

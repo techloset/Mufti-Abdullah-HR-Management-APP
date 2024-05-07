@@ -1,5 +1,6 @@
 "use client";
-import { ICON, SIDEBAR } from "@/app/constants/images";
+import RIGHTARROW from "../../assets/icons/direction-right 01.svg";
+import ATTENDENCE from "../../assets/icons/calendar-check.svg";
 import Image from "next/image";
 import DatePicker from "react-datepicker";
 import React, { ChangeEvent } from "react";
@@ -58,7 +59,7 @@ const PersonalInformation: React.FC<PersonalInformationMainProps> = ({
           onChange={handleChange}
         />
         <Image
-          src={ICON.RIGHTARROW}
+          src={RIGHTARROW}
           className="rotate-90"
           alt="sidebar"
           width={20}
@@ -83,7 +84,7 @@ const PersonalInformation: React.FC<PersonalInformationMainProps> = ({
           onChange={handleChange}
         />
         <Image
-          src={ICON.RIGHTARROW}
+          src={RIGHTARROW}
           className="rotate-90"
           alt="sidebar"
           width={20}
@@ -108,7 +109,7 @@ const PersonalInformation: React.FC<PersonalInformationMainProps> = ({
           onChange={handleChange}
         />
         <Image
-          src={ICON.RIGHTARROW}
+          src={RIGHTARROW}
           className="rotate-90"
           alt="sidebar"
           width={20}
@@ -122,7 +123,7 @@ const PersonalInformation: React.FC<PersonalInformationMainProps> = ({
           className="bg-transparent focus:outline-none"
         />
         Selet Joinig Date
-        <Image src={SIDEBAR.ATTENDENCE} alt="sidebar" width={20} height={20} />
+        <Image src={ATTENDENCE} alt="sidebar" width={20} height={20} />
       </div>
       <div className="flex w-[99%] flex-row justify-between border-2  text-white bg-transparent sm:text-sm rounded-lg   p-2.5  border-secondry focus:outline-none  ">
         <input
@@ -134,7 +135,7 @@ const PersonalInformation: React.FC<PersonalInformationMainProps> = ({
           onChange={handleChange}
         />
         <Image
-          src={ICON.RIGHTARROW}
+          src={RIGHTARROW}
           className="rotate-90"
           alt="sidebar"
           width={20}

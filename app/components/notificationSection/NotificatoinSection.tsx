@@ -1,5 +1,3 @@
-import { HOMEICONS } from "@/app/constants/images";
-import Image from "next/image";
 import React from "react";
 import NotificationComponent from "../notificationComponent.tsx/NotificationComponent";
 

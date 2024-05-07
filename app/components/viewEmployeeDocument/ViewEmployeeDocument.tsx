@@ -1,4 +1,5 @@
-import { ICON } from "@/app/constants/images";
+import DOWNLOAD from "../../assets/icons/download 01.svg";
+import VIEW from "../../assets/icons/view.svg";
 import { FormData } from "@/app/constants/types";
 import { fetchEmployees } from "@/redux/slices/employee";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
@@ -47,7 +48,7 @@ export default function ViewEmployeeDocument({
         <h1 className="text-base">Appointment Letter.pdf</h1>
         <div className="flex flex-row gap-2">
           <Image
-            src={ICON.VIEW}
+            src={VIEW}
             alt="view"
             className="cursor-pointer"
             onClick={() =>
@@ -55,7 +56,7 @@ export default function ViewEmployeeDocument({
             }
           />
           <Image
-            src={ICON.DOWNLOAD}
+            src={DOWNLOAD}
             alt="download"
             className="cursor-pointer"
             onClick={() =>
@@ -68,13 +69,13 @@ export default function ViewEmployeeDocument({
         <h1 className="text-base">Salary Slip.pdf</h1>
         <div className="flex flex-row gap-2">
           <Image
-            src={ICON.VIEW}
+            src={VIEW}
             alt="view"
             className="cursor-pointer"
             onClick={() => window.open(employeeData?.salarySlips, "_blank")}
           />
           <Image
-            src={ICON.DOWNLOAD}
+            src={DOWNLOAD}
             alt="Download your image"
             className="cursor-pointer"
             onClick={() => handleDownload(employeeData?.salarySlips as string)}
@@ -85,13 +86,13 @@ export default function ViewEmployeeDocument({
         <h1 className="text-base">Reliving Letter.pdf</h1>
         <div className="flex flex-row gap-2">
           <Image
-            src={ICON.VIEW}
+            src={VIEW}
             alt="view"
             className="cursor-pointer"
             onClick={() => window.open(employeeData?.relivingLetter, "_blank")}
           />
           <Image
-            src={ICON.DOWNLOAD}
+            src={DOWNLOAD}
             alt="download"
             className="cursor-pointer"
             onClick={() =>
@@ -104,7 +105,7 @@ export default function ViewEmployeeDocument({
         <h1 className="text-base">Experience Letter.pdf</h1>
         <div className="flex flex-row gap-2">
           <Image
-            src={ICON.VIEW}
+            src={VIEW}
             alt="view"
             className="cursor-pointer"
             onClick={() =>
@@ -112,7 +113,7 @@ export default function ViewEmployeeDocument({
             }
           />
           <Image
-            src={ICON.DOWNLOAD}
+            src={DOWNLOAD}
             alt="download"
             className="cursor-pointer"
             onClick={() =>

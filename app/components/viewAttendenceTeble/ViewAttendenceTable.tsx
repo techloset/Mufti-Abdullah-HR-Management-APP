@@ -4,7 +4,7 @@ import { FormData } from "@/app/constants/types";
 import PaginationBar from "../paginationBar/PaginationBar";
 import useViewAttendenceTable from "./useViewAttendenceTable";
 import Image from "next/image";
-import { ADDEMPLOYEE } from "@/app/constants/images";
+import USER from "../../assets/icons/user white.svg";
 import React from "react";
 
 export default function ViewAttendenceTable() {
@@ -60,12 +60,7 @@ export default function ViewAttendenceTable() {
                       alt=""
                     />
                   ) : (
-                    <Image
-                      src={ADDEMPLOYEE.USER}
-                      width={24}
-                      height={24}
-                      alt="filter"
-                    />
+                    <Image src={USER} width={24} height={24} alt="filter" />
                   )}
                   {employee.userName}
                 </td>

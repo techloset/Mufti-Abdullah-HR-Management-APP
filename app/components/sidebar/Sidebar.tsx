@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
+import SUN from "../../assets/icons/sun.svg";
 import React, { useState } from "react";
-
+import ICON from "../../assets/icons/Vector.svg";
 import Link from "next/link";
-import { SIDEBAR } from "@/app/constants/images";
+import WEATHER from "../../assets/icons/weather.svg";
 import { SIDE_BAR_ICONS } from "@/app/constants/sidebarIcons";
 import { usePathname } from "next/navigation";
 export default function Sidebar() {
@@ -16,7 +17,7 @@ export default function Sidebar() {
   return (
     <aside className=" overflow-auto top-0 left-0 mx-3 my-2 fixed flex flex-col justify-between bg-danger  rounded-3xl text-white max-w-72  h-full">
       <div className="mt-5 mx-auto">
-        <Image src={SIDEBAR.ICON} height={32} width={88} alt={"ICON"} />
+        <Image src={ICON} height={32} width={88} alt={"ICON"} />
         <div className="mt-10">
           <ul className="space-y-2">
             {SIDE_BAR_ICONS.map((link, i: number) => {
@@ -49,7 +50,7 @@ export default function Sidebar() {
           }`}
           onClick={handleModeChange}
         >
-          <Image src={SIDEBAR.WEAHER} alt={""} width={18} height={18} />
+          <Image src={WEATHER} alt={""} width={18} height={18} />
           Light
         </button>
         <button
@@ -58,7 +59,7 @@ export default function Sidebar() {
           }`}
           onClick={handleModeChange}
         >
-          <Image src={SIDEBAR.SUN} alt={"sun"} width={18} height={18} />
+          <Image src={SUN} alt={"sun"} width={18} height={18} />
           Dark
         </button>
       </div>

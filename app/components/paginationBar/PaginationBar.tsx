@@ -1,6 +1,7 @@
 import React from "react";
-import { ICON } from "@/app/constants/images";
+import RIGHTARROW from "../../assets/icons/direction-right 01.svg";
 import Image from "next/image";
+import ARROW from "../../assets/icons/direction-down.svg";
 
 interface PaginationProps {
   currentPage: number;
@@ -55,10 +56,6 @@ const PaginationBar: React.FC<PaginationProps> = ({
           <option value={15}>15</option>
           <option value={20}>20</option>
         </select>
-
-        {/* <div className="flex items-center">
-          <Image className="ms-4" src={ICON.ARROW} alt="iconArrowDown" />
-        </div> */}
       </div>
       <div className="text-[14px] font-light">
         Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
@@ -69,7 +66,7 @@ const PaginationBar: React.FC<PaginationProps> = ({
         <button onClick={prevPage}>
           <Image
             className="me-[10px] rotate-90"
-            src={ICON.ARROW}
+            src={ARROW}
             height={24}
             width={24}
             alt="iconArrowLeft"
@@ -91,7 +88,7 @@ const PaginationBar: React.FC<PaginationProps> = ({
         <button onClick={nextPage}>
           <Image
             className="ms-[10px]"
-            src={ICON.RIGHTARROW}
+            src={RIGHTARROW}
             height={24}
             width={24}
             alt="iconArrowRight"

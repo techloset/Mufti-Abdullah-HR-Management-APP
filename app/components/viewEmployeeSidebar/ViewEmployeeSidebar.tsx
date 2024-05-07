@@ -1,9 +1,12 @@
 "use client";
-import { ADDEMPLOYEE } from "@/app/constants/images";
+import USER from "../../assets/icons/user white.svg";
+import BREAFCASE from "../../assets/icons/briefcase white.svg";
+import LOCK from "../../assets/icons/lock white.svg";
+import DOCUMENT from "../../assets/icons/document-text white.svg";
 import Image from "next/image";
 import React, { useState } from "react";
 interface ViewEmployeeSidebarProps {
-  selectedTab: (tab: number) => void; // Callback function to update selectedTab
+  selectedTab: (tab: number) => void;
 }
 
 const ViewEmployeeSidebar: React.FC<ViewEmployeeSidebarProps> = ({
@@ -24,7 +27,7 @@ const ViewEmployeeSidebar: React.FC<ViewEmployeeSidebarProps> = ({
         } `}
         onClick={() => handleTabClick(0)}
       >
-        <Image src={ADDEMPLOYEE.USER} alt="user" />
+        <Image src={USER} alt="user" />
 
         <h1 className="p-3">Profile</h1>
       </div>
@@ -34,7 +37,7 @@ const ViewEmployeeSidebar: React.FC<ViewEmployeeSidebarProps> = ({
         } `}
         onClick={() => handleTabClick(1)}
       >
-        <Image src={ADDEMPLOYEE.BREAFCASE} alt="user" />
+        <Image src={BREAFCASE} alt="user" />
 
         <h1 className="p-3">Attendence</h1>
       </div>
@@ -44,7 +47,7 @@ const ViewEmployeeSidebar: React.FC<ViewEmployeeSidebarProps> = ({
         } `}
         onClick={() => handleTabClick(2)}
       >
-        <Image src={ADDEMPLOYEE.DOCUMENT} alt="user" />
+        <Image src={DOCUMENT} alt="user" />
         <h1 className="p-3">Projects</h1>
       </div>
       <div
@@ -53,7 +56,7 @@ const ViewEmployeeSidebar: React.FC<ViewEmployeeSidebarProps> = ({
         } `}
         onClick={() => handleTabClick(3)}
       >
-        <Image src={ADDEMPLOYEE.LOCK} alt="user" />
+        <Image src={LOCK} alt="user" />
 
         <h1 className="p-3">Leave</h1>
       </div>

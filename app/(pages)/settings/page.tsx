@@ -1,5 +1,5 @@
 import Switcher from "@/app/components/switcher/Switcher";
-import { ICON } from "@/app/constants/images";
+import RIGHTARROW from "../../assets/icons/direction-right 01.svg";
 import Image from "next/image";
 import React from "react";
 
@@ -15,7 +15,7 @@ export default function Setting() {
         </div>
         <div className="flex flex-row gap-2 bg-secondry items-center justify-center p-3 rounded-lg h-[40px]">
           <h2>Light</h2>
-          <Image src={ICON.RIGHTARROW} alt="arrow" className="rotate-90" />
+          <Image src={RIGHTARROW} alt="arrow" className="rotate-90" />
         </div>
       </div>
       <div className="flex flex-row py-3 justify-between items-center">
@@ -27,7 +27,7 @@ export default function Setting() {
         </div>
         <div className="flex flex-row gap-2 bg-secondry items-center justify-center p-3 rounded-lg  h-[40px]">
           <h2>English</h2>
-          <Image src={ICON.RIGHTARROW} alt="arrow" className="rotate-90" />
+          <Image src={RIGHTARROW} alt="arrow" className="rotate-90" />
         </div>
       </div>
       <div className="flex flex-row py-3 justify-between items-center">

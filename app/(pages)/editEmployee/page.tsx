@@ -2,7 +2,9 @@
 import ViewEmployeeSidebar from "@/app/components/viewEmployeeSidebar/ViewEmployeeSidebar";
 import ViewLeaveTable from "@/app/components/viewLeaveTable/ViewLeaveTable";
 import ViewProjectTable from "@/app/components/viewProjectTable/ViewProjectTable";
-import { ADDEMPLOYEE, ICON } from "@/app/constants/images";
+import BREAFCASE from "../assets/icons/briefcase white.svg";
+import GMAIL from "../../assets/icons/gmail.svg";
+import EDIT from "../assets/icons/edit.svg";
 import Image from "next/image";
 import React, { useState } from "react";
 import User from "../../assets/icons/Rectangle 3463328.svg";
@@ -42,16 +44,11 @@ export default function ViewEmployee() {
               {result.userName}
             </h2>
             <h1 className="flex flex-row gap-2.5">
-              <Image
-                src={ADDEMPLOYEE.BREAFCASE}
-                alt="breafcase"
-                height={24}
-                width={24}
-              />
+              <Image src={BREAFCASE} alt="breafcase" height={24} width={24} />
               {result.department}
             </h1>
             <h2 className="flex flex-row  gap-2.5">
-              <Image height={24} width={24} src={ICON.GMAIL} alt="breafcase" />
+              <Image height={24} width={24} src={GMAIL} alt="breafcase" />
               {result.email}
             </h2>
           </div>
@@ -61,7 +58,7 @@ export default function ViewEmployee() {
             onClick={hanldeUpate}
             className="border-[1px] flex bg-primary flex-row items-center justify-center gap-3 rounded-lg text-white border-secondry p-2"
           >
-            <Image src={ICON.EDIT} alt="filter" />
+            <Image src={EDIT} alt="filter" />
             Edit Profile
           </button>
         </div>
@@ -74,7 +71,7 @@ export default function ViewEmployee() {
           )}
           {selectedTab === 1 && <IndividualAttendenceTable id={result.id} />}
           {selectedTab === 2 && <ViewProjectTable id={result.id} />}
-          {selectedTab === 3 && <ViewLeaveTable />}
+          {selectedTab === 3 && <ViewLeaveTable id={result.id} />}
         </div>
       </div>
     </div>

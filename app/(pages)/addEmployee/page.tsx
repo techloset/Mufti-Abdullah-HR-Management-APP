@@ -3,8 +3,14 @@ import EmployeeAccess from "@/app/components/employeeAccess/EmployeeAccess";
 import Employeedocument from "@/app/components/employeeDocument/Employeedocument";
 import PersonalInformation from "@/app/components/personalInformation/PersonalInformation";
 import PersonalInformationMain from "@/app/components/personalInformation/PersonalInofrmationMain";
-import { ADDEMPLOYEE } from "@/app/constants/images";
-
+import USERORANGE from "../../assets/icons/user orange.svg";
+import USER from "../../assets/icons/user white.svg";
+import BREAFCASEORANGE from "../../assets/icons/briefcase.svg";
+import BREAFCASE from "../../assets/icons/briefcase white.svg";
+import DOCUMENT from "../../assets/icons/document-text white.svg";
+import DOCUMENTORANGE from "../../assets/icons/document-text orange.svg";
+import LOCKORANGE from "../../assets/icons/lock.svg";
+import LOCK from "../../assets/icons/lock white.svg";
 import Image from "next/image";
 import React from "react";
 import useAddEmployee from "./useAddEmployee";
@@ -30,9 +36,9 @@ export default function AddEmployee() {
           onClick={() => setSelectedTab(0)}
         >
           {selectedTab === 0 ? (
-            <Image src={ADDEMPLOYEE.USERORANGE} alt="user" />
+            <Image src={USERORANGE} alt="user" />
           ) : (
-            <Image src={ADDEMPLOYEE.USER} alt="user" />
+            <Image src={USER} alt="user" />
           )}
 
           <h1>Personal Information</h1>
@@ -46,9 +52,9 @@ export default function AddEmployee() {
           onClick={() => setSelectedTab(1)}
         >
           {selectedTab === 1 ? (
-            <Image src={ADDEMPLOYEE.BREAFCASEORANGE} alt="user" />
+            <Image src={BREAFCASEORANGE} alt="user" />
           ) : (
-            <Image src={ADDEMPLOYEE.BREAFCASE} alt="user" />
+            <Image src={BREAFCASE} alt="user" />
           )}
 
           <h1>Personal Information</h1>
@@ -62,9 +68,9 @@ export default function AddEmployee() {
           onClick={() => setSelectedTab(2)}
         >
           {selectedTab === 2 ? (
-            <Image src={ADDEMPLOYEE.DOCUMENTORANGE} alt="user" />
+            <Image src={DOCUMENTORANGE} alt="user" />
           ) : (
-            <Image src={ADDEMPLOYEE.DOCUMENT} alt="user" />
+            <Image src={DOCUMENT} alt="user" />
           )}
           <h1>Documents</h1>
         </div>
@@ -77,9 +83,9 @@ export default function AddEmployee() {
           onClick={() => setSelectedTab(3)}
         >
           {selectedTab === 3 ? (
-            <Image src={ADDEMPLOYEE.LOCKORANGE} alt="user" />
+            <Image src={LOCKORANGE} alt="user" />
           ) : (
-            <Image src={ADDEMPLOYEE.LOCK} alt="user" />
+            <Image src={LOCK} alt="user" />
           )}
 
           <h1>Account Access</h1>

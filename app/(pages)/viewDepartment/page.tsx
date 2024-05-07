@@ -2,11 +2,11 @@
 import PaginationBar from "@/app/components/paginationBar/PaginationBar";
 import { ICON } from "@/app/constants/images";
 import { FormData } from "@/app/constants/types";
-import { fetchEmployees } from "@/redux/slices/employee";
-import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
+import TRASH from "../assets/icons/trash 01.svg";
+import EDIT from "../assets/icons/edit.svg";
+import VIEW from "../assets/icons/view.svg";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useViewDepartment from "./useViewDepartment";
 
 export const EMPLOYEE_TABLE_HEAD = [
@@ -71,13 +71,13 @@ export default function Page() {
                 </td>
                 <td className="pt-[10px] flex">
                   <button>
-                    <Image src={ICON.VIEW} alt="iconView" />
+                    <Image src={VIEW} alt="iconView" />
                   </button>
                   <button>
-                    <Image src={ICON.EDIT} alt="iconEdit" />
+                    <Image src={EDIT} alt="iconEdit" />
                   </button>
                   <button>
-                    <Image src={ICON.TRASH} alt="iconTrash" />
+                    <Image src={TRASH} alt="iconTrash" />
                   </button>
                 </td>
               </tr>

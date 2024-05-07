@@ -1,5 +1,5 @@
-import { ICON } from "@/app/constants/Images";
-import { FormData } from "@/app/constants/Types";
+import { ICON } from "@/app/constants/images";
+import { FormData } from "@/app/constants/types";
 import { fetchEmployees } from "@/redux/slices/employee";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import Image from "next/image";

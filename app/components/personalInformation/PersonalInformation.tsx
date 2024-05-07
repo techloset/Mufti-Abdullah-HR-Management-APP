@@ -1,10 +1,10 @@
 "use client";
-import { ICON, SIDEBAR } from "@/app/constants/Images";
+import { ICON, SIDEBAR } from "@/app/constants/images";
 import Image from "next/image";
 import DatePicker from "react-datepicker";
 import React, { ChangeEvent } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import { FormData } from "@/app/constants/Types";
+import { FormData } from "@/app/constants/types";
 
 interface PersonalInformationMainProps {
   formData: FormData;

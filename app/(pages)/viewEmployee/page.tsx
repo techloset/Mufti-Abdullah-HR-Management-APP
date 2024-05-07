@@ -3,34 +3,36 @@ import EmployeeSidebarProfile from "@/app/components/employeeSidebarProfile/Empl
 import ViewEmployeeSidebar from "@/app/components/viewEmployeeSidebar/ViewEmployeeSidebar";
 import ViewLeaveTable from "@/app/components/viewLeaveTable/ViewLeaveTable";
 import ViewProjectTable from "@/app/components/viewProjectTable/ViewProjectTable";
-import { ADDEMPLOYEE, ICON } from "@/app/constants/Images";
+import { ADDEMPLOYEE, ICON } from "@/app/constants/images";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import User from "../../assets/icons/Rectangle 3463328.svg";
-import { useSearchParams } from "next/navigation";
-import { useAppDispatch } from "@/redux/storeHook";
-import { updateEmployee } from "@/redux/slices/employee";
-import { FormData } from "@/app/constants/Types";
 import IndividualAttendenceTable from "@/app/components/individualAttendenceTable/individualAttendenceTable";
-
+import useViewEmployee from "./useViewEmployee";
 export default function ViewEmployee() {
-  const [selectedTab, setSelectedTab] = useState(0);
-
-  const searchparams = useSearchParams();
-  const employee = searchparams.get("user");
-  const result = JSON.parse(employee as string);
+  const { result, selectedTab, setSelectedTab } = useViewEmployee();
 
   return (
     <div className="border-[1px]  border-secondry p-5 rounded-lg ">
       <div className="flex flex-row pb-8 border-b-2 border-b-secondry text-white justify-between">
         <div className="flex flex-row">
-          <Image
-            src={User}
-            alt="user"
-            width={100}
-            height={100}
-            className="rounded-lg"
-          />
+          {result.imageUrl ? (
+            <img
+              src={result.imageUrl}
+              alt="user"
+              width={100}
+              height={100}
+              className="rounded-lg"
+            />
+          ) : (
+            <Image
+              src={User}
+              alt="user"
+              width={100}
+              height={100}
+              className="rounded-lg"
+            />
+          )}
           <div className="space-y-2 text-sm font-light ms-4">
             <h2 className="text-2xl text-white font-semibold">
               {result.userName}
@@ -57,7 +59,7 @@ export default function ViewEmployee() {
           {selectedTab === 0 && <EmployeeSidebarProfile id={result.id} />}
           {selectedTab === 1 && <IndividualAttendenceTable id={result.id} />}
           {selectedTab === 2 && <ViewProjectTable id={result.id} />}
-          {selectedTab === 3 && <ViewLeaveTable />}
+          {selectedTab === 3 && <ViewLeaveTable id={result.id} />}
         </div>
       </div>
     </div>

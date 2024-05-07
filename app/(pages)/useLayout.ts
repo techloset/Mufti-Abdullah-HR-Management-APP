@@ -32,8 +32,8 @@ export const useLayout = () => {
       break;
     case "/viewEmployee":
       headerProps = {
-        mainTitle: "USer NAme",
-        greeting: "All Employee > User NAme",
+        mainTitle: "User Name",
+        greeting: "All Employee > User Name",
       };
       break;
     case "/departments":

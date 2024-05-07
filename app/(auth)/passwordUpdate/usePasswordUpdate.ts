@@ -1,18 +1,15 @@
-import { Change } from "@/app/constants/Types";
+import { Change } from "@/app/constants/types";
 import { updateUserPassword } from "@/redux/slices/user";
 import { useAppDispatch } from "@/redux/storeHook";
 import { useSession } from "next-auth/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function usePasswordUpdate() {
   const dispatch = useAppDispatch();
   const [oldPassword, setOldPassword] = useState("");
-  console.log("🚀 ~ usePasswordUpdate ~ oldPassword:", oldPassword);
   const [newPassword, setNewPassword] = useState("");
-  console.log("🚀 ~ usePasswordUpdate ~ newPassword:", newPassword);
   const [confirmPassword, setConfirmPassword] = useState("");
-  console.log("🚀 ~ usePasswordUpdate ~ confirmPassword:", confirmPassword);
   const currentUser = useSession();
   const currentUserEmail = currentUser.data?.user?.email;
   console.log("currentUserEmail", currentUserEmail);

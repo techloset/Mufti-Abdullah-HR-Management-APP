@@ -1,21 +1,26 @@
 // @ts-ignore
 "use client";
 import React, { useEffect, useState } from "react";
-import { ICON } from "@/app/constants/Images";
 import Image from "next/image";
 import Link from "next/link";
 import PaginationBar from "../paginationBar/PaginationBar";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import { deleteEmployee, fetchEmployees } from "@/redux/slices/employee";
-import { FormData } from "@/app/constants/Types";
+import { FormData } from "@/app/constants/types";
 import SearchBar from "../searchBar/SearchBar";
+import { ICON } from "@/app/constants/images";
 
 export default function AllEmployeeTable() {
   const dispatch = useAppDispatch();
-  const employees = useAppSelector((state) => state.employees.employeeData);
+  const allEmployees = useAppSelector((state) => state.employees.employeeData);
+
+  const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
-
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const handleInputChange = (value: string) => {
+    setSearchValue(value);
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,28 +37,47 @@ export default function AllEmployeeTable() {
     dispatch(deleteEmployee(id));
   };
 
+  const filteredEmployees = allEmployees.filter(
+    (employee: FormData) =>
+      (selectedDepartment === "" ||
+        employee.department === selectedDepartment) &&
+      employee.userName?.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   const indexOfLastEmployee = currentPage * itemsPerPage;
   const indexOfFirstEmployee = indexOfLastEmployee - itemsPerPage;
-  const currentEmployees = employees.slice(
+  const currentEmployees = filteredEmployees.slice(
     indexOfFirstEmployee,
     indexOfLastEmployee
   );
-
   return (
     <div className="border-[1px] rounded-lg mt-4 border-secondry p-2 w-auto overflow-x-auto ">
       <div className="flex  mx-5 my-5 flex-row justify-between items-center">
-        <SearchBar />
+        <SearchBar setInputValue={handleInputChange} />
         <div className="flex flex-row gap-5">
+          <select
+            className="border-[1px] flex bg-primary flex-row items-center justify-center gap-3 rounded-lg text-white border-secondry p-2"
+            value={selectedDepartment}
+            onChange={(e) => setSelectedDepartment(e.target.value)}
+          >
+            <option value="">All Departments</option>
+
+            {Array.from(
+              new Set(
+                allEmployees.map((employee: FormData) => employee.department)
+              )
+            ).map((department) => (
+              <option key={department} value={department}>
+                {department}
+              </option>
+            ))}
+          </select>
           <Link href="/addEmployee">
             <button className="border-[1px] flex bg-primary flex-row items-center justify-center gap-3 rounded-lg text-white border-secondry p-2">
               <Image src={ICON.PLUS} alt="filter" />
               Add New Employee
             </button>
           </Link>
-          <button className="border-[1px] flex flex-row items-center justify-center gap-3 rounded-lg text-white border-secondry p-2">
-            <Image src={ICON.FILTER} alt="filter" />
-            Filter
-          </button>
         </div>
       </div>
       <table className="table-fixed w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -149,7 +173,7 @@ export default function AllEmployeeTable() {
       <PaginationBar
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        totalItems={employees.length}
+        totalItems={filteredEmployees.length}
         itemsPerPage={itemsPerPage}
         setItemsPerPage={setItemsPerPage}
       />

@@ -36,6 +36,7 @@ export type FormData = {
   skypeID?: string;
   githubID?: string;
   id?: string;
+  attendence?: string;
   createdDate: Date;
 };
 export type FormProps = {
@@ -64,4 +65,7 @@ export type EmployeeData = {
   designation?: string;
   employeeType?: string;
   joinDate?: string;
+};
+export type USER = {
+  password?: string;
 };

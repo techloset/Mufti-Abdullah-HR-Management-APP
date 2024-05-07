@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 import Link from "next/link";
-import { SIDEBAR } from "@/app/constants/Images";
+import { SIDEBAR } from "@/app/constants/images";
 import { SIDE_BAR_ICONS } from "@/app/constants/sidebarIcons";
 import { usePathname } from "next/navigation";
 export default function Sidebar() {

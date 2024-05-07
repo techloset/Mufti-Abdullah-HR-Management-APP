@@ -1,5 +1,5 @@
 "use client";
-import { ADDEMPLOYEE } from "@/app/constants/Images";
+import { ADDEMPLOYEE } from "@/app/constants/images";
 import Image from "next/image";
 import React, { useState } from "react";
 interface ViewEmployeeSidebarProps {

@@ -16,9 +16,8 @@ export default function useRegister() {
   const [state, setState] = useState({ email: "", password: "", name: "" });
   const handleChange = (e: Change) =>
     setState((s) => ({ ...s, [e.target.name]: e.target.value }));
-  const handleSubmit = async (event: any, state: State) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
-
     try {
       await dispatch(addUser(state as State));
       toast("You are successfully registered");
@@ -28,6 +27,7 @@ export default function useRegister() {
       toast(
         `An error occurred during registration. Please try again later.${error}`
       );
+      return;
     }
   };
   return { handleChange, handleSubmit };

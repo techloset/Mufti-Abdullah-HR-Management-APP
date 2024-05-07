@@ -1,12 +1,13 @@
 "use client";
 import PaginationBar from "@/app/components/paginationBar/PaginationBar";
-import { ICON } from "@/app/constants/Images";
-import { FormData } from "@/app/constants/Types";
+import { ICON } from "@/app/constants/images";
+import { FormData } from "@/app/constants/types";
 import { fetchEmployees } from "@/redux/slices/employee";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import useViewDepartment from "./useViewDepartment";
 
 export const EMPLOYEE_TABLE_HEAD = [
   { heading: "Employee ID" },
@@ -19,39 +20,14 @@ export const EMPLOYEE_TABLE_HEAD = [
 ];
 
 export default function Page() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-
-  const searchParams = useSearchParams();
-  const employee = searchParams.get("user");
-  const result = JSON.parse(employee as string);
-
-  const dispatch = useAppDispatch();
-  const employees = useAppSelector((state) => state.employees.employeeData);
-
-  useEffect(() => {
-    dispatch(fetchEmployees());
-  }, [dispatch]);
-
-  const filteredEmployees = employees.filter((employee: FormData) =>
-    result.includes(employee.id)
-  );
-
-  const totalPages = Math.ceil(filteredEmployees.length / itemsPerPage);
-  const lastPage = Math.max(1, totalPages);
-  const indexOfLastEmployee = Math.min(
-    currentPage * itemsPerPage,
-    filteredEmployees.length
-  );
-  const indexOfFirstEmployee = Math.min(
-    indexOfLastEmployee - itemsPerPage,
-    filteredEmployees.length
-  );
-  const currentEmployees = filteredEmployees.slice(
-    indexOfFirstEmployee,
-    indexOfLastEmployee
-  );
-
+  const {
+    currentEmployees,
+    currentPage,
+    setCurrentPage,
+    filteredEmployees,
+    itemsPerPage,
+    setItemsPerPage,
+  } = useViewDepartment();
   return (
     <div className="mt-[30px] shadow-md ">
       <table className="w-full font-light text-sm  text-left rtl:text-right ">

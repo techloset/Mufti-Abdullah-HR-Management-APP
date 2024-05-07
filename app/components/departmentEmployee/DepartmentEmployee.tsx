@@ -1,4 +1,4 @@
-import { HOMEICONS, ICON } from "@/app/constants/Images";
+import { HOMEICONS, ICON } from "@/app/constants/images";
 import Image from "next/image";
 import React from "react";
 

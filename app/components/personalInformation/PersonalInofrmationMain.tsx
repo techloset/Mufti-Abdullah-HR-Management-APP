@@ -1,11 +1,11 @@
 "use client";
-import { ADDEMPLOYEE, ICON, SIDEBAR } from "@/app/constants/Images";
+import { ADDEMPLOYEE, ICON, SIDEBAR } from "@/app/constants/images";
 import Image from "next/image";
 import DatePicker from "react-datepicker";
 import React, { ChangeEvent } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { UploadButtonForImage } from "@/utils/uploadthing";
-import { FormData } from "@/app/constants/Types";
+import { FormData } from "@/app/constants/types";
 import InputDropDown from "../inputDropDown/InputDropDown";
 
 interface PersonalInformationMainProps {

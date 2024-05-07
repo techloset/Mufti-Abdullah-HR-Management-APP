@@ -4,21 +4,16 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const PUT = async (request: NextRequest) => {
   try {
-    const { email, oldPassword, newPassword } = await request.json();
+    const { email, newPassword } = await request.json();
 
     const userLogin = await prisma.user.findUnique({
       where: { email },
     });
+    console.log("🚀 ~ PUT ~ userLogin:", userLogin);
     if (!userLogin) {
       return new NextResponse(JSON.stringify(Error), { status: 400 });
     }
-    const passwordMatch = await bcrypt.compare(
-      oldPassword,
-      userLogin?.password
-    );
-    if (!passwordMatch) {
-      return new NextResponse(JSON.stringify(Error), { status: 400 });
-    }
+
     const hashPassword = await bcrypt.hash(newPassword, 10);
 
     const user = await prisma.user.update({

@@ -26,9 +26,9 @@ export const addEmployee = createAsyncThunk(
 
       console.log("Added new employee:", response.data);
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error adding employee:", error);
-      throw error;
+      throw new Error(error?.message || "Error adding employees");
     }
   }
 );
@@ -40,9 +40,9 @@ export const deleteEmployee = createAsyncThunk(
       const response = await instance.delete("employee", { id });
       console.log("Deleted employee with id:", id);
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error deleting employee:", error);
-      throw error;
+      throw new Error(error?.message || "Error Deleting employees");
     }
   }
 );
@@ -58,9 +58,9 @@ export const updateEmployee = createAsyncThunk(
       console.log("Updated employee with id:", id);
 
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error updating employee:", error);
-      throw error;
+      throw new Error(error?.message || "Error Updating employees");
     }
   }
 );

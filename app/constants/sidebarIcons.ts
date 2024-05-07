@@ -1,4 +1,4 @@
-import { SIDEBAR } from "./Images";
+import { SIDEBAR } from "./images";
 
 export const SIDE_BAR_ICONS = [
   {

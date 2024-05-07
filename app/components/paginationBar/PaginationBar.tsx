@@ -1,5 +1,5 @@
 import React from "react";
-import { ICON } from "@/app/constants/Images";
+import { ICON } from "@/app/constants/images";
 import Image from "next/image";
 
 interface PaginationProps {

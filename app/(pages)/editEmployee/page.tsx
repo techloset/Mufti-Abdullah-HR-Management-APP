@@ -2,14 +2,14 @@
 import ViewEmployeeSidebar from "@/app/components/viewEmployeeSidebar/ViewEmployeeSidebar";
 import ViewLeaveTable from "@/app/components/viewLeaveTable/ViewLeaveTable";
 import ViewProjectTable from "@/app/components/viewProjectTable/ViewProjectTable";
-import { ADDEMPLOYEE, ICON } from "@/app/constants/Images";
+import { ADDEMPLOYEE, ICON } from "@/app/constants/images";
 import Image from "next/image";
 import React, { useState } from "react";
 import User from "../../assets/icons/Rectangle 3463328.svg";
 import { useSearchParams } from "next/navigation";
 import { useAppDispatch } from "@/redux/storeHook";
 import { updateEmployee } from "@/redux/slices/employee";
-import { FormData } from "@/app/constants/Types";
+import { FormData } from "@/app/constants/types";
 import IndividualAttendenceTable from "@/app/components/individualAttendenceTable/individualAttendenceTable";
 import EditSidebarProfile from "@/app/components/employeeSidebarProfile/EditSidebarProfile";
 

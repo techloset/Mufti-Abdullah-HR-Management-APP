@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { HOMEICONS } from "@/app/constants/Images";
-import { HomeBoxProps } from "@/app/constants/Types";
+import { HOMEICONS } from "@/app/constants/images";
+import { HomeBoxProps } from "@/app/constants/types";
 
 const HomeBox: React.FC<HomeBoxProps> = ({
   iconSrc,

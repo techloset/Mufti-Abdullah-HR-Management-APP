@@ -1,9 +1,11 @@
 "use client";
-import { FormData } from "@/app/constants/Types";
+
+import { FormData } from "@/app/constants/types";
 import PaginationBar from "../paginationBar/PaginationBar";
 import useViewAttendenceTable from "./useViewAttendenceTable";
 import Image from "next/image";
-import { ADDEMPLOYEE } from "@/app/constants/Images";
+import { ADDEMPLOYEE } from "@/app/constants/images";
+import React from "react";
 
 export default function ViewAttendenceTable() {
   const {
@@ -13,10 +15,12 @@ export default function ViewAttendenceTable() {
     setCurrentPage,
     itemsPerPage,
     setItemsPerPage,
+    handleChange,
   } = useViewAttendenceTable();
+
   return (
     <>
-      <table className="text-sm w-full text-left text-lightWhite ">
+      <table className="text-sm w-full text-left text-lightWhite">
         <thead className="text-xs text-white uppercase">
           <tr className="text-[16px] border-b-secondry border-b-[1px] font-light text-balance">
             <th scope="col" className="px-5 py-3">
@@ -32,6 +36,9 @@ export default function ViewAttendenceTable() {
               Check In Type
             </th>
             <th scope="col" className="px-5 py-3">
+              Mark Attendance
+            </th>
+            <th scope="col" className="px-5 py-3">
               Status
             </th>
           </tr>
@@ -44,20 +51,20 @@ export default function ViewAttendenceTable() {
                 className="text-white border-b-secondry border-b-[1px]"
               >
                 <td className="py-4 px-5 gap-2 font-light text-[16px] whitespace-nowrap text-white flex flex-row items-center ">
-                  {employee.imageUrl == "" || null || undefined ? (
-                    <Image
-                      src={ADDEMPLOYEE.USER}
-                      width={24}
-                      height={24}
-                      alt="filter"
-                    />
-                  ) : (
+                  {employee.imageUrl ? (
                     <img
                       height={24}
                       width={24}
                       src={employee.imageUrl}
                       className="rounded-lg"
                       alt=""
+                    />
+                  ) : (
+                    <Image
+                      src={ADDEMPLOYEE.USER}
+                      width={24}
+                      height={24}
+                      alt="filter"
                     />
                   )}
                   {employee.userName}
@@ -69,12 +76,39 @@ export default function ViewAttendenceTable() {
                   {employee.employeeType}
                 </td>
                 <td className="px-5 font-light text-[16px] whitespace-nowrap text-white py-4">
-                  {employee.startDate}
+                  {employee.joinDate}
                 </td>
 
                 <td className="px-5  mx-auto whitespace-nowrap  py-4">
-                  <h1 className="bg-lightGreeen font-light  text-[12px] w-[66px] rounded-md p-2 text-green">
-                    On Time
+                  <h1 className="bg-lightGreen font-light text-[12px]  rounded-md p-2">
+                    <select
+                      className="bg-transparent"
+                      onChange={(e) => handleChange(e, employee.id)}
+                    >
+                      <option value="" className="bg-black">
+                        Select Attendence
+                      </option>
+                      <option value="On Time" className=" bg-black">
+                        On Time
+                      </option>
+                      <option value="Late" className="  bg-black">
+                        Late
+                      </option>
+                    </select>
+                  </h1>
+                </td>
+                <td
+                  className={`px-5 mx-auto whitespace-nowrap rounded-md p-2 text-[12px]`}
+                >
+                  <h1
+                    className={` rounded-md p-2 text-[12px] ${
+                      employee.attendence === "Late"
+                        ? "bg-lightRed text-Red"
+                        : employee.attendence === "On Time" &&
+                          "bg-lightGreeen text-green"
+                    }`}
+                  >
+                    {employee.attendence}
                   </h1>
                 </td>
               </tr>

@@ -1,68 +1,60 @@
 "use client";
 import img from "../../assets/icons/Frame 427320595.svg";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import toast from "react-hot-toast";
+import { Change } from "@/app/constants/types";
 
-type Change = {
-  target: {
-    name: string;
-    value: string;
-  };
-};
 function page() {
   const router = useRouter();
-  const [state, setState] = useState({ email: "" });
+  const [state, setState] = useState({ otp: "" });
+  const [otp, setOtp] = useState({ email: "", otp: "" });
   const handleChange = (e: Change) =>
     setState((s) => ({ ...s, [e.target.name]: e.target.value }));
 
-  const otp = Math.floor(100000 + Math.random() * 900000);
+  useEffect(() => {
+    const otpValue = localStorage.getItem("otpData");
+    console.log("🚀 ~ useEffect ~ otpValue:", otpValue);
+    if (otpValue !== null) {
+      const parsedOtp = JSON.parse(otpValue);
+      if (parsedOtp) {
+        setOtp(parsedOtp);
+      }
+    }
+  }, []);
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-
-    const data = {
-      service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-      template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-      user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID || "",
-      template_params: {
-        to_email: state.email,
-        to_name: state.email,
-        from_name: "HR Management",
-        user_email: state.email,
-        otp: otp,
-      },
-    };
-
     try {
-      const res = await axios.post(
-        "https://api.emailjs.com/api/v1.0/email/send",
-        data
-      );
-      localStorage.setItem(
-        "otpData",
-        JSON.stringify({ email: state.email, otp })
-      );
-      router.push("/otp");
-      console.log(res.data);
+      if (!otp.otp || otp.otp == "") {
+        toast.error("OTP Expired");
+        return;
+      }
+
+      const matchOtp = otp.otp == state.otp;
+
+      if (!matchOtp) {
+        toast.error("OTP not matched");
+        return;
+      }
+      router.push("/newPassword");
     } catch (error) {
-      console.log("error", error);
+      console.error("Error occurred:", error);
     }
   };
+
   useEffect(() => {
     setTimeout(function () {
       localStorage.removeItem("otpData");
     }, 60 * 1000);
-  }, [otp]);
-
+  }, []);
   return (
     <section className="bg-black h-screen flex justify-center items-center w-full text-white ">
       <div className="flex flex-col bg-secondry items-center max-w-[445px] max-h-[561px] justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className="w-fullrounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
-          <Link href={"/login"}>
+          <Link href={"/resetPassword"}>
             <Image
               src={img}
               alt="Icon"
@@ -73,11 +65,11 @@ function page() {
           </Link>
           <div className="p-6 sm:p-8">
             <h1 className="text-2xl font-bold mb-2 md:text-3xl dark:text-white">
-              Forgot Password
+              OTP
             </h1>
             <p className="text-base mb-4">
-              Enter your registered email address. we’ll send you a code to
-              reset your password.
+              Check Your email and Enter OTP in one Minute otherwise it will
+              expire.
             </p>
             <form
               className="space-y-4 md:space-y-6 max-w-[445px]"
@@ -85,15 +77,15 @@ function page() {
             >
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your email
+                  Your OTP
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   onChange={handleChange}
-                  name="email"
-                  id="email"
+                  name="otp"
+                  id="otp"
                   className="border-2  text-black sm:text-sm rounded-lg block w-full p-2.5  focus:border-primary focus:outline-none "
-                  placeholder="Your email address"
+                  placeholder="Your OTP here"
                   required
                 />
               </div>

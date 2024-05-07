@@ -1,7 +1,8 @@
 import { prisma } from "@/config/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
+import axios from "axios";
 
 function generatePassword() {
   const charset =
@@ -15,23 +16,29 @@ function generatePassword() {
 }
 
 async function sendOTPToEmail(email: string, otp: string) {
-  emailjs.init("Pg9LLfrnQL4JWSJQ6");
-  try {
-    const templateParams = {
+  const data = {
+    service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+    template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+    user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID || "",
+    template_params: {
       to_email: email,
-      user_id: "Pg9LLfrnQL4JWSJQ6",
+      to_name: "Abdul Rehman",
+      from_name: "Medicare",
+      user_email: email,
       otp: otp,
-    };
-    await emailjs.send(
-      "service_yeajshs",
-      "template_zqnz90q",
-      templateParams,
-      "Pg9LLfrnQL4JWSJQ6"
+    },
+  };
+
+  try {
+    const res = await axios.post(
+      "https://api.emailjs.com/api/v1.0/email/send",
+      data
     );
-    console.log("OTP sent successfully!");
+    // setGetOtp(true);
+    // setEmail("");
+    console.log(res.data);
   } catch (error) {
-    console.error("Error sending OTP:", error);
-    throw new Error("Failed to send OTP");
+    console.log("error", error);
   }
 }
 

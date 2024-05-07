@@ -1,6 +1,6 @@
 "use client";
 import Departmentsection from "@/app/components/departmentSection/Departmentsection";
-import { ICON } from "@/app/constants/Images";
+import { ICON } from "@/app/constants/images";
 
 import Image from "next/image";
 import useDepartment from "./useDepartment";

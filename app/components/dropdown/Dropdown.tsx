@@ -1,6 +1,6 @@
 "use client";
-import { HOMEICONS, ICON } from "@/app/constants/Images";
-import { User } from "@/app/constants/Types";
+import { HOMEICONS, ICON } from "@/app/constants/images";
+import { User } from "@/app/constants/types";
 import { getSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";

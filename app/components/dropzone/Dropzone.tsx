@@ -3,11 +3,9 @@ import React from "react";
 
 const Dropzone = ({
   content,
-  formData,
   setFormData,
 }: {
   content: string;
-  formData: FormData;
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 }) => {
   const handleImageUpload = (imageUrl: string) => {

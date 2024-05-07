@@ -1,4 +1,4 @@
-import { EmployeeData } from "@/app/constants/Types";
+import { EmployeeData } from "@/app/constants/types";
 
 import useIndividualAttendenceTable from "./useIndividualAttendenceTable";
 

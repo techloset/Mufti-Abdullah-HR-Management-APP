@@ -3,7 +3,7 @@ import ViewPersonalInformationMian from "../viewPersonalInformation/ViewPersonal
 import ViewPersonalInformation from "../viewPersonalInformation/ViewPersonalInformation";
 import ViewEmployeeDocument from "../viewEmployeeDocument/ViewEmployeeDocument";
 import ViewEmployeeAccess from "../viewEmployeeAccess/ViewEmployeeAccess";
-import { BREAFCASE, DOCUMENT, LOCK, USERICON } from "@/app/constants/SvgIcons";
+import { BREAFCASE, DOCUMENT, LOCK, USERICON } from "@/app/constants/svgIcons";
 
 export default function EmployeeSidebarProfile({ id }: { id: string }) {
   const [selectedTab, setSelectedTab] = useState(0);

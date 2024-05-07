@@ -1,7 +1,7 @@
 import React from "react";
 import ApexChart from "../../components/chart/Chart";
 import HomeBox from "../../components/homeBox/HomeBox";
-import { HOMEICONS } from "../../constants/Images";
+import { HOMEICONS } from "../../constants/images";
 import AttendenceTable from "../../components/attendeceTable/AttendenceTable";
 import useDashboard from "./useDashboard";
 

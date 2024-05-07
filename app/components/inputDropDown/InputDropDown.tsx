@@ -1,5 +1,5 @@
 "use client";
-import { ICON } from "@/app/constants/Images";
+import { ICON } from "@/app/constants/images";
 import Image from "next/image";
 import { useState } from "react";
 

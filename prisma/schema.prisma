@@ -46,4 +46,5 @@ model Employee {
   skypeID           String?
   githubID          String?
   createdDate       String?
+  attendance        String?
 }

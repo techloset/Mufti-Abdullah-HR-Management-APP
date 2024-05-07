@@ -1,4 +1,4 @@
-import { Change } from "@/app/constants/Types";
+import { Change } from "@/app/constants/types";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";

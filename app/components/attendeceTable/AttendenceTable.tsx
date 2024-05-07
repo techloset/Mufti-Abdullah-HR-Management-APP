@@ -1,9 +1,9 @@
-import { HOMEICONS } from "@/app/constants/Images";
+import { HOMEICONS } from "@/app/constants/images";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import useAttendence from "./useAttendence";
-import { FormData } from "@/app/constants/Types";
+import { FormData } from "@/app/constants/types";
 
 export default function AttendenceTable() {
   const { employees } = useAttendence();

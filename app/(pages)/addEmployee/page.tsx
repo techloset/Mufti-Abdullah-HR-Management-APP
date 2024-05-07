@@ -3,7 +3,7 @@ import EmployeeAccess from "@/app/components/employeeAccess/EmployeeAccess";
 import Employeedocument from "@/app/components/employeeDocument/Employeedocument";
 import PersonalInformation from "@/app/components/personalInformation/PersonalInformation";
 import PersonalInformationMain from "@/app/components/personalInformation/PersonalInofrmationMain";
-import { ADDEMPLOYEE } from "@/app/constants/Images";
+import { ADDEMPLOYEE } from "@/app/constants/images";
 
 import Image from "next/image";
 import React from "react";

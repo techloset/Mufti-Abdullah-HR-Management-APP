@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 import Loader from "@/app/components/loader/Loader";
-import uselogin from "./uselogin";
+import Uselogin from "./uselogin";
 
 function Login() {
-  const { handleSubmit, handleChange, isLoading } = uselogin();
+  const { handleSubmit, handleChange, isLoading } = Uselogin();
   return (
     <section className="bg-black  h-auto flex p-4 justify-center items-center text-white ">
       <div className="flex flex-col md:w-[445px] w-full justify-center py-8 items-center  lg:py-0">

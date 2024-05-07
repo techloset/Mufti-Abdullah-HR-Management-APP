@@ -1,29 +1,6 @@
-"use client";
 import React from "react";
 
-import { useState } from "react";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-
-type Change = {
-  target: {
-    name: string;
-    value: string;
-  };
-};
-function page() {
-  const router = useRouter();
-  const [state, setState] = useState({ email: "", password: "" });
-  const handleChange = (e: Change) =>
-    setState((s) => ({ ...s, [e.target.name]: e.target.value }));
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    signIn("credentials", {
-      ...state,
-      redirect: false,
-    });
-    router.push("/");
-  };
+function Page() {
   return (
     <section className="bg-black h-screen flex justify-center items-center w-full text-white ">
       <div className="flex flex-col bg-secondry items-center max-w-[445px] max-h-[561px] justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -50,4 +27,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

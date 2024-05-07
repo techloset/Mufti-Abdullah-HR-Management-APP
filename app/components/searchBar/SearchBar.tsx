@@ -1,3 +1,4 @@
+"use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import Image from "next/image";
 import search from "../../assets/icons/Union.svg";

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { Change } from "@/app/constants/types";
 
-function page() {
+export default function Page() {
   const router = useRouter();
   const [state, setState] = useState({ otp: "" });
   const [otp, setOtp] = useState({ email: "", otp: "" });
@@ -102,5 +102,3 @@ function page() {
     </section>
   );
 }
-
-export default page;

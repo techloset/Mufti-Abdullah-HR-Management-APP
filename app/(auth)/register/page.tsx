@@ -3,10 +3,10 @@ import img from "../../assets/icons/Vector.svg";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import useRegister from "./useRegister";
+import UseRegister from "./useRegister";
 
 function page() {
-  const { handleChange, handleSubmit } = useRegister();
+  const { handleChange, handleSubmit } = UseRegister();
   return (
     <section className="bg-black  h-auto flex p-4 justify-center items-center text-white  ">
       <div className="flex flex-col md:w-[445px] w-full justify-center py-8 items-center  lg:py-0">

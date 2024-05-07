@@ -4,7 +4,7 @@ import { fetchEmployees } from "@/redux/slices/employee";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import React, { useEffect, useState } from "react";
 
-export default function useDepartment() {
+export default function UseDepartment() {
   const dispatch = useAppDispatch();
   const employees = useAppSelector((state) => state.employees.employeeData);
   const [departments, setDepartments] = useState<string[]>([]);

@@ -3,7 +3,7 @@
 import { getSession, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
-export const useLayout = () => {
+export const UseLayout = () => {
   let headerProps: { mainTitle: string; greeting: string } = {
     mainTitle: "",
     greeting: "",

@@ -10,7 +10,7 @@ export type State = {
   password: string;
   name: string;
 };
-export default function useRegister() {
+export default function UseRegister() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const [state, setState] = useState({ email: "", password: "", name: "" });

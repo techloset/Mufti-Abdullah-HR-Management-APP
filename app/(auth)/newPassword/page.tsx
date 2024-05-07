@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/redux/storeHook";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-export default function newPassword() {
+export default function Page() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [otp, setOtp] = useState({ email: "", otp: "" });

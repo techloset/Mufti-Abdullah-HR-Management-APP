@@ -1,10 +1,9 @@
 "use client";
 import img from "../../assets/icons/Frame 427320595.svg";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
@@ -14,7 +13,7 @@ type Change = {
     value: string;
   };
 };
-function page() {
+function Page() {
   const router = useRouter();
   const [state, setState] = useState({ email: "" });
   const handleChange = (e: Change) =>
@@ -111,4 +110,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

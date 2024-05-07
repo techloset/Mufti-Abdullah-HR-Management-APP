@@ -9,11 +9,13 @@ import User from "../../assets/icons/Rectangle 3463328.svg";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useAppDispatch } from "@/redux/storeHook";
+import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import { updateEmployee } from "@/redux/slices/employee";
 import { FormData } from "@/app/constants/types";
 import IndividualAttendenceTable from "@/app/components/individualAttendenceTable/individualAttendenceTable";
 import EditSidebarProfile from "@/app/components/employeeSidebarProfile/EditSidebarProfile";
+import toast from "react-hot-toast";
+import Loader from "@/app/components/loader/Loader";
 
 export default function ViewEmployee() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -22,10 +24,18 @@ export default function ViewEmployee() {
   const searchparams = useSearchParams();
   const employee = searchparams.get("user");
   const result = JSON.parse(employee as string);
-  console.log("result", result);
-  const hanldeUpate = () => {
-    const id: FormData = formData.id;
-    dispatch(updateEmployee({ id: id, data: formData }));
+  const [loading, setLoading] = useState(false);
+  const handleUpdate = async () => {
+    try {
+      setLoading(true);
+      const id: FormData = formData.id;
+      await dispatch(updateEmployee({ id: id, data: formData }));
+      toast.success("Employee updated successfully");
+      setLoading(false);
+    } catch (error) {
+      toast.error("Error updating employee:" + error);
+      console.error("Error updating employee:", error);
+    }
   };
 
   return (
@@ -55,11 +65,17 @@ export default function ViewEmployee() {
         </div>
         <div className="mt-auto">
           <button
-            onClick={hanldeUpate}
+            onClick={handleUpdate}
             className="border-[1px] flex bg-primary flex-row items-center justify-center gap-3 rounded-lg text-white border-secondry p-2"
           >
-            <Image src={EDIT} alt="filter" />
-            Edit Profile
+            {loading ? (
+              <Loader />
+            ) : (
+              <>
+                <Image src={EDIT} alt="filter" />
+                Edit Profile
+              </>
+            )}
           </button>
         </div>
       </div>

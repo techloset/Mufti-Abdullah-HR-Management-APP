@@ -2,16 +2,16 @@
 import React from "react";
 import Sidebar from "../sidebar/Sidebar";
 import Header from "../header/Header";
-import { useLayout } from "@/app/(pages)/useLayout";
+import { UseLayout } from "@/app/(pages)/useLayout";
 
-interface RootLayoutProps {
+interface LayoutContentProps {
   children: React.ReactNode;
 }
 
 export default function LayoutContent({
   children,
-}: RootLayoutProps): JSX.Element {
-  const { headerProps } = useLayout();
+}: LayoutContentProps): JSX.Element {
+  const { headerProps } = UseLayout();
 
   return (
     <div className="flex h-screen bg-black">

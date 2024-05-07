@@ -1,10 +1,10 @@
 import { Change } from "@/app/constants/types";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
-export default function uselogin() {
+export default function Uselogin() {
   const router = useRouter();
   const [state, setState] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);

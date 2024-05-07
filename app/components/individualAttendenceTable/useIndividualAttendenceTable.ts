@@ -8,6 +8,7 @@ export default function useIndividualAttendenceTable({ id }: { id: string }) {
   const [employeeData, setEmployeeData] = useState<EmployeeData | null>(null);
   const dispatch = useAppDispatch();
   const employees = useAppSelector((state) => state.employees.employeeData);
+  const loading = useAppSelector((state) => state.employees.isLoading);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,5 +31,6 @@ export default function useIndividualAttendenceTable({ id }: { id: string }) {
 
   return {
     employeeData,
+    loading,
   };
 }

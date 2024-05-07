@@ -2,9 +2,9 @@
 import ViewEmployeeSidebar from "@/app/components/viewEmployeeSidebar/ViewEmployeeSidebar";
 import ViewLeaveTable from "@/app/components/viewLeaveTable/ViewLeaveTable";
 import ViewProjectTable from "@/app/components/viewProjectTable/ViewProjectTable";
-import BREAFCASE from "../assets/icons/briefcase white.svg";
+import BREAFCASE from "../../assets/icons/briefcase white.svg";
 import GMAIL from "../../assets/icons/gmail.svg";
-import EDIT from "../assets/icons/edit.svg";
+import EDIT from "../../assets/icons/edit.svg";
 import Image from "next/image";
 import React, { useState } from "react";
 import User from "../../assets/icons/Rectangle 3463328.svg";

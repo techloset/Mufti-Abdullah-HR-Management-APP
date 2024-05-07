@@ -2,9 +2,9 @@
 import PaginationBar from "@/app/components/paginationBar/PaginationBar";
 import { ICON } from "@/app/constants/images";
 import { FormData } from "@/app/constants/types";
-import TRASH from "../assets/icons/trash 01.svg";
-import EDIT from "../assets/icons/edit.svg";
-import VIEW from "../assets/icons/view.svg";
+import TRASH from "../../assets/icons/trash 01.svg";
+import EDIT from "../../assets/icons/edit.svg";
+import VIEW from "../../assets/icons/view.svg";
 import Image from "next/image";
 import React from "react";
 import useViewDepartment from "./useViewDepartment";

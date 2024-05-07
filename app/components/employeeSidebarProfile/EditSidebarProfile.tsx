@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import ViewPersonalInformationMian from "../viewPersonalInformation/ViewPersonalInformationMian";
-import ViewPersonalInformation from "../viewPersonalInformation/ViewPersonalInformation";
-import ViewEmployeeDocument from "../viewEmployeeDocument/ViewEmployeeDocument";
-import ViewEmployeeAccess from "../viewEmployeeAccess/ViewEmployeeAccess";
-import { BREAFCASE, DOCUMENT, LOCK, USERICON } from "@/app/constants/svgIcons";
+import { BREAFCASE, DOCUMENT, LOCK, USERICON } from "../../constants/svgIcons";
 import EditPersonalInformationMain from "../editPersonalInformation/EditPersonalInformationMain";
 import EditPersonalInformation from "../editPersonalInformation/EditPersonalInformation";
 import EditEmployeeDocument from "../editEmployeeDocument/EditEmployeeDocument";

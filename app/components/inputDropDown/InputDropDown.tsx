@@ -1,5 +1,5 @@
 "use client";
-import { ICON } from "@/app/constants/images";
+import ARROW from "../../assets/icons/direction-down.svg";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -41,7 +41,7 @@ const InputDropDown: React.FC<InputDropDownProps> = ({ options, onSelect }) => {
           </div>
         </div>
         <Image
-          src={ICON.ARROW}
+          src={ARROW}
           className={`${
             isOpen ? "rotate-180" : "rotate-0"
           } ease-in-out duration-500 `}

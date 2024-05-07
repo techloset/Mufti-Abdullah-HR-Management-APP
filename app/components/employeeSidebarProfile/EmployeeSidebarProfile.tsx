@@ -3,8 +3,15 @@ import ViewPersonalInformationMian from "../viewPersonalInformation/ViewPersonal
 import ViewPersonalInformation from "../viewPersonalInformation/ViewPersonalInformation";
 import ViewEmployeeDocument from "../viewEmployeeDocument/ViewEmployeeDocument";
 import ViewEmployeeAccess from "../viewEmployeeAccess/ViewEmployeeAccess";
-import { BREAFCASE, DOCUMENT, LOCK, USERICON } from "@/app/constants/svgIcons";
-
+import USER from "../../assets/icons/user white.svg";
+import USERORANGE from "../../assets/icons/user orange.svg";
+import BREAFCASE from "../../assets/icons/briefcase white.svg";
+import BREAFCASEORANGE from "../../assets/icons/briefcase.svg";
+import LOCKORANGE from "../../assets/icons/lock.svg";
+import LOCK from "../../assets/icons/lock white.svg";
+import DOCUMENT from "../../assets/icons/document-text white.svg";
+import DOCUMENTORANGE from "../../assets/icons/document-text orange.svg";
+import Image from "next/image";
 export default function EmployeeSidebarProfile({ id }: { id: string }) {
   const [selectedTab, setSelectedTab] = useState(0);
 
@@ -22,9 +29,9 @@ export default function EmployeeSidebarProfile({ id }: { id: string }) {
           onClick={() => setSelectedTab(0)}
         >
           {selectedTab === 0 ? (
-            <USERICON color="orange" />
+            <Image src={USERORANGE} height={24} width={24} alt="USER" />
           ) : (
-            <USERICON color="white" />
+            <Image src={USER} height={24} width={24} alt="USER" />
           )}
 
           <h1>Personal Information</h1>
@@ -38,9 +45,14 @@ export default function EmployeeSidebarProfile({ id }: { id: string }) {
           onClick={() => setSelectedTab(1)}
         >
           {selectedTab === 1 ? (
-            <BREAFCASE color="orange" />
+            <Image
+              src={BREAFCASEORANGE}
+              height={12}
+              width={12}
+              alt="BREAFCASE"
+            />
           ) : (
-            <BREAFCASE color="white" />
+            <Image src={BREAFCASE} height={24} width={24} alt="BREAFCASE" />
           )}
 
           <h1>Personal Information</h1>
@@ -54,9 +66,9 @@ export default function EmployeeSidebarProfile({ id }: { id: string }) {
           onClick={() => setSelectedTab(2)}
         >
           {selectedTab === 2 ? (
-            <DOCUMENT color="orange" />
+            <Image src={DOCUMENTORANGE} height={24} width={24} alt="document" />
           ) : (
-            <DOCUMENT color="white" />
+            <Image src={DOCUMENT} height={24} width={24} alt="document" />
           )}
           <h1>Documents</h1>
         </div>
@@ -68,7 +80,11 @@ export default function EmployeeSidebarProfile({ id }: { id: string }) {
           } max-w-fit`}
           onClick={() => setSelectedTab(3)}
         >
-          {selectedTab === 3 ? <LOCK color="orange" /> : <LOCK color="white" />}
+          {selectedTab === 3 ? (
+            <Image src={LOCKORANGE} height={24} width={24} alt="Lock" />
+          ) : (
+            <Image src={LOCK} height={24} width={24} alt="Lock" />
+          )}
 
           <h1>Account Access</h1>
         </div>

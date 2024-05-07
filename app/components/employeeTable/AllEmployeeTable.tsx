@@ -8,7 +8,10 @@ import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import { deleteEmployee, fetchEmployees } from "@/redux/slices/employee";
 import { FormData } from "@/app/constants/types";
 import SearchBar from "../searchBar/SearchBar";
-import { ICON } from "@/app/constants/images";
+import PLUS from "../../assets/icons/add-circle.svg";
+import TRASH from "../../assets/icons/trash 01.svg";
+import EDIT from "../../assets/icons/edit.svg";
+import VIEW from "../../assets/icons/view.svg";
 
 export default function AllEmployeeTable() {
   const dispatch = useAppDispatch();
@@ -74,7 +77,7 @@ export default function AllEmployeeTable() {
           </select>
           <Link href="/addEmployee">
             <button className="border-[1px] flex bg-primary flex-row items-center justify-center gap-3 rounded-lg text-white border-secondry p-2">
-              <Image src={ICON.PLUS} alt="filter" />
+              <Image src={PLUS} alt="filter" />
               Add New Employee
             </button>
           </Link>
@@ -142,11 +145,7 @@ export default function AllEmployeeTable() {
                   className="w-64 cursor-pointer"
                   onClick={() => handleDelete(employee.id as string)}
                 >
-                  <Image
-                    src={ICON.TRASH}
-                    alt=""
-                    className="h-[24px] w-[24px]"
-                  />
+                  <Image src={TRASH} alt="" className="h-[24px] w-[24px]" />
                 </div>
                 <Link
                   href={{
@@ -154,7 +153,7 @@ export default function AllEmployeeTable() {
                     query: { user: JSON.stringify(employee) },
                   }}
                 >
-                  <Image src={ICON.EDIT} alt="" width={109} height={120} />
+                  <Image src={EDIT} alt="" width={109} height={120} />
                 </Link>
 
                 <Link
@@ -163,7 +162,7 @@ export default function AllEmployeeTable() {
                     query: { user: JSON.stringify(employee) },
                   }}
                 >
-                  <Image src={ICON.VIEW} alt="" width={109} height={120} />
+                  <Image src={VIEW} alt="" width={109} height={120} />
                 </Link>
               </td>
             </tr>

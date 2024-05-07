@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { HOMEICONS } from "@/app/constants/images";
+import GREEN from "../../assets/icons/Button (4).svg";
 import { HomeBoxProps } from "@/app/constants/types";
 
 const HomeBox: React.FC<HomeBoxProps> = ({
@@ -18,7 +18,7 @@ const HomeBox: React.FC<HomeBoxProps> = ({
 
       <div className="flex flex-row ps-[26px] pr-[56px] justify-between text-white">
         <h1 className="text-white text-[30px] font-semibold">{totalCount}</h1>
-        <Image src={HOMEICONS.GREEEN} alt="green heart" />
+        <Image src={GREEN} alt="green heart" />
       </div>
       <div className="border-t-[1px] text-[12px] px-[26px] py-[10px] text-balance border-danger mt-3">
         <h1>Update: {updateDate}</h1>

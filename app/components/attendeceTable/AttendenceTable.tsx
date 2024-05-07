@@ -1,10 +1,9 @@
-import { HOMEICONS } from "@/app/constants/images";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import useAttendence from "./useAttendence";
 import { FormData } from "@/app/constants/types";
-
+import USER from "../../assets/icons/Ellipse 1192.svg";
 export default function AttendenceTable() {
   const { employees } = useAttendence();
   return (
@@ -57,7 +56,7 @@ export default function AttendenceTable() {
                     />
                   ) : (
                     <Image
-                      src={HOMEICONS.USER}
+                      src={USER}
                       alt="profile"
                       className="w-[36px] h-[36px] rounded-lg"
                     />

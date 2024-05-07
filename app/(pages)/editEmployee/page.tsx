@@ -5,9 +5,9 @@ import ViewProjectTable from "@/app/components/viewProjectTable/ViewProjectTable
 import BREAFCASE from "../../assets/icons/briefcase white.svg";
 import GMAIL from "../../assets/icons/gmail.svg";
 import EDIT from "../../assets/icons/edit.svg";
+import User from "../../assets/icons/Rectangle 3463328.svg";
 import Image from "next/image";
 import React, { useState } from "react";
-import User from "../../assets/icons/Rectangle 3463328.svg";
 import { useSearchParams } from "next/navigation";
 import { useAppDispatch } from "@/redux/storeHook";
 import { updateEmployee } from "@/redux/slices/employee";

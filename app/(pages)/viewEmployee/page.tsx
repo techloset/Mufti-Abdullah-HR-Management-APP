@@ -3,10 +3,12 @@ import EmployeeSidebarProfile from "@/app/components/employeeSidebarProfile/Empl
 import ViewEmployeeSidebar from "@/app/components/viewEmployeeSidebar/ViewEmployeeSidebar";
 import ViewLeaveTable from "@/app/components/viewLeaveTable/ViewLeaveTable";
 import ViewProjectTable from "@/app/components/viewProjectTable/ViewProjectTable";
-import { ADDEMPLOYEE, ICON } from "@/app/constants/images";
+import BREAFCASE from "../../assets/icons/briefcase white.svg";
+import GMAIL from "../../assets/icons/gmail.svg";
+import User from "../../assets/icons/Rectangle 3463328.svg";
 import Image from "next/image";
 import React from "react";
-import User from "../../assets/icons/Rectangle 3463328.svg";
+
 import IndividualAttendenceTable from "@/app/components/individualAttendenceTable/individualAttendenceTable";
 import useViewEmployee from "./useViewEmployee";
 export default function ViewEmployee() {
@@ -38,16 +40,11 @@ export default function ViewEmployee() {
               {result.userName}
             </h2>
             <h1 className="flex flex-row gap-2.5">
-              <Image
-                src={ADDEMPLOYEE.BREAFCASE}
-                alt="breafcase"
-                height={24}
-                width={24}
-              />
+              <Image src={BREAFCASE} alt="breafcase" height={24} width={24} />
               {result.department}
             </h1>
             <h2 className="flex flex-row  gap-2.5">
-              <Image height={24} width={24} src={ICON.GMAIL} alt="breafcase" />
+              <Image height={24} width={24} src={GMAIL} alt="breafcase" />
               {result.email}
             </h2>
           </div>

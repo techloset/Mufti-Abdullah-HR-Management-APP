@@ -1,12 +1,12 @@
 "use client";
-import { HOMEICONS, ICON } from "@/app/constants/images";
 import { User } from "@/app/constants/types";
 import { getSession, signOut } from "next-auth/react";
+import ARROW from "../../assets/icons/direction-down.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import USER from "../../assets/icons/Ellipse 1192.svg";
 const DropDown: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [user, setUser] = useState<User | null>(null);
@@ -36,7 +36,7 @@ const DropDown: React.FC = () => {
         onClick={toggleDropdown}
       >
         <div className="flex">
-          <Image src={HOMEICONS.USER} alt="Profile pic" />
+          <Image src={USER} alt="Profile pic" />
           <div className="flex flex-col items-start ms-[5px]">
             {user && (
               <>
@@ -47,7 +47,7 @@ const DropDown: React.FC = () => {
           </div>
         </div>
         <Image
-          src={ICON.ARROW}
+          src={ARROW}
           className={`${
             isOpen ? "rotate-180" : "rotate-0"
           } ease-in-out duration-500`}

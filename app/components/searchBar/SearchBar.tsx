@@ -1,5 +1,5 @@
 "use client";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import Image from "next/image";
 import search from "../../assets/icons/Union.svg";
 interface SearchBarProps {
@@ -7,10 +7,7 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ setInputValue }) => {
-  console.log("🚀 ~ setInputValue:", setInputValue);
   const [searchValue, setSearchValue] = useState("");
-  console.log("🚀 ~ searchValue:", searchValue);
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchValue(value);

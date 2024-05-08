@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import ApexChart from "../../components/chart/Chart";
 import HomeBox from "../../components/homeBox/HomeBox";

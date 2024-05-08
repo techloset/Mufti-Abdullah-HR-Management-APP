@@ -17,11 +17,7 @@ const Header: FC<HeaderProps> = ({ mainTitle, greeting }) => {
         <p className="text-balance text-sm">{greeting}</p>
       </div>
       <div className="flex flex-row justify-center items-center w-auto ms-auto">
-        <SearchBar
-          setInputValue={function (value: string): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
+        <SearchBar setInputValue={() => search} />
         <Image src={notification} alt="notification" className="me-5" />
         <div className="flex flex-row border-[1px] me-3 gap-2 border-secondry  h-[50px] rounded-md p-1">
           <DropDown />

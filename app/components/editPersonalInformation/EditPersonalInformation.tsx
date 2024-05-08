@@ -128,7 +128,9 @@ export default function EditPersonalInformation({
               type="text"
               name="joinDate"
               value={
-                employeeData.joinDate ? employeeData.joinDate.toISOString() : ""
+                employeeData.joinDate instanceof Date
+                  ? employeeData.joinDate.toISOString()
+                  : ""
               }
               onChange={handleChange}
               className="text-base bg-transparent border-none outline-none focus:ring-0"

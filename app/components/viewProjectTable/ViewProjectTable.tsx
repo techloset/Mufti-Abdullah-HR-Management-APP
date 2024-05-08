@@ -58,7 +58,9 @@ export default function ViewProjectTable({ id }: { id: string }) {
             {employeeData?.userName}
           </td>
           <td className="px-5 font-light text-[16px] whitespace-nowrap text-white py-4">
-            {employeeData?.startDate}
+            {employeeData?.startDate
+              ? new Date(employeeData.startDate).toLocaleDateString()
+              : ""}
           </td>
           <td className="px-5 font-light text-[16px] whitespace-nowrap text-white py-4">
             {employeeData?.department}

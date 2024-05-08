@@ -52,7 +52,9 @@ export default function ViewLeaveTable({ id }: { id: string }) {
       <tbody>
         <tr className="text-white border-b-secondry border-b-[1px] ">
           <td className="py-4 px-5 gap-2 font-light text-[16px] whitespace-nowrap text-white">
-            {employeeData?.startDate}
+            {employeeData?.startDate
+              ? new Date(employeeData.startDate).toLocaleDateString()
+              : ""}
           </td>
           <td className="px-5 font-light text-[16px] whitespace-nowrap text-white py-4">
             {employeeData?.designation}

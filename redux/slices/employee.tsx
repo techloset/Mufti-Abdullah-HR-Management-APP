@@ -37,7 +37,7 @@ export const deleteEmployee = createAsyncThunk(
   "employee/deleteEmployee",
   async (id: string) => {
     try {
-      const response = await instance.delete("employee", { id });
+      const response = await instance.delete("employee", { params: { id } });
       console.log("Deleted employee with id:", id);
       return response.data;
     } catch (error: any) {
@@ -83,16 +83,16 @@ const employeeSlice = createSlice({
       })
       .addCase(deleteEmployee.fulfilled, (state, action) => {
         state.employeeData = state.employeeData.filter(
-          (employee) => employee.id !== action.payload
+          (employee: { id: string }) => employee.id !== action.payload
         );
       })
+
       .addCase(updateEmployee.fulfilled, (state, action) => {
         state.employeeData = action.payload;
         console.log("Employee updated successfully:", action.payload);
       })
       .addCase(addEmployee.fulfilled, (state, action) => {
-        state.employeeData.push(action.payload);
-        console.log("Employee added successfully:", action.payload);
+        state.employeeData = action.payload;
       });
   },
 });

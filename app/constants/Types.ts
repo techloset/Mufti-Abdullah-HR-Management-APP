@@ -65,6 +65,18 @@ export type EmployeeData = {
   designation?: string;
   employeeType?: string;
   joinDate?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  mobileNumber: string;
+  maritalStatus: string;
+  gender: string;
+  nationality: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  createdDate: string;
 };
 export type USER = {
   password?: string;

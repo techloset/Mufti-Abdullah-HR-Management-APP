@@ -16,10 +16,12 @@ import IndividualAttendenceTable from "@/app/components/individualAttendenceTabl
 import EditSidebarProfile from "@/app/components/employeeSidebarProfile/EditSidebarProfile";
 import toast from "react-hot-toast";
 import Loader from "@/app/components/loader/Loader";
-
+interface Data {
+  id: string;
+}
 export default function ViewEmployee() {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<Data>({ id: "" });
   const dispatch = useAppDispatch();
   const searchparams = useSearchParams();
   const employee = searchparams.get("user");
@@ -28,7 +30,7 @@ export default function ViewEmployee() {
   const handleUpdate = async () => {
     try {
       setLoading(true);
-      const id: FormData = formData.id;
+      const id = formData.id;
       await dispatch(updateEmployee({ id: id, data: formData }));
       toast.success("Employee updated successfully");
       setLoading(false);

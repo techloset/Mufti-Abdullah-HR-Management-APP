@@ -91,7 +91,7 @@ export default function useAddEmployee() {
         `Please fill out all required fields: ${missingFields.join(", ")}`
       );
     }
-    dispatch(addEmployee(formData as FormData))
+    dispatch(addEmployee(formData as any))
       .then(() => {
         setFormData(initailFormData);
         toast.success("Employee added successfully");

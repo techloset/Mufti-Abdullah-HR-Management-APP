@@ -71,7 +71,7 @@ export const PUT = async (request: NextRequest) => {
       },
     });
     return new NextResponse(JSON.stringify({ success: true }));
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error updating user:", error);
     return new NextResponse(JSON.stringify({ error: error.message }), {
       status: 400,

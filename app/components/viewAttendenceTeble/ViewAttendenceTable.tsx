@@ -71,14 +71,16 @@ export default function ViewAttendenceTable() {
                   {employee.employeeType}
                 </td>
                 <td className="px-5 font-light text-[16px] whitespace-nowrap text-white py-4">
-                  {employee.joinDate}
+                  {employee.joinDate
+                    ? new Date(employee.joinDate).toLocaleDateString()
+                    : ""}
                 </td>
 
                 <td className="px-5  mx-auto whitespace-nowrap  py-4">
                   <h1 className="bg-lightGreen font-light text-[12px]  rounded-md p-2">
                     <select
                       className="bg-transparent"
-                      onChange={(e) => handleChange(e, employee.id)}
+                      onChange={(e) => handleChange(e, employee.id ?? "")}
                     >
                       <option value="" className="bg-black">
                         Select Attendence

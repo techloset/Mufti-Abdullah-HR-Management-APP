@@ -25,7 +25,7 @@ export default function useIndividualAttendenceTable({ id }: { id: string }) {
   useEffect(() => {
     const employee = employees && employees.find((e: FormData) => e.id === id);
     if (employee) {
-      setEmployeeData({ ...(employee as FormData) });
+      setEmployeeData({ ...(employee as EmployeeData) });
     }
   }, [employees, id]);
 

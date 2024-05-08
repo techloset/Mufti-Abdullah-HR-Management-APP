@@ -2,8 +2,11 @@ import { State } from "@/app/(auth)/register/useRegister";
 import instance from "@/utils/Instance";
 import { User } from "@prisma/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
+interface UserState {
+  user: User[];
+  isLoading: boolean;
+}
+const initialState: UserState = {
   user: [],
   isLoading: false,
 };

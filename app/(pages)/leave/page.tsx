@@ -9,7 +9,7 @@ export default function Leave() {
       </div>
       <div className="flex flex-col flex-1">
         <header className="text-white px-4 py-2 flex justify-between items-center">
-          <Header />
+          <Header mainTitle={"Leave"} greeting={"Good Morning"} />
         </header>
         <main className="p-4 flex-1 overflow-y-auto">
           <h1>haleem</h1>

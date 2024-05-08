@@ -127,7 +127,9 @@ export default function EditPersonalInformation({
             <input
               type="text"
               name="joinDate"
-              value={employeeData.joinDate}
+              value={
+                employeeData.joinDate ? employeeData.joinDate.toISOString() : ""
+              }
               onChange={handleChange}
               className="text-base bg-transparent border-none outline-none focus:ring-0"
             />

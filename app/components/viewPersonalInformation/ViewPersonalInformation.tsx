@@ -105,7 +105,11 @@ export default function ViewPersonalInformation({
             <input
               type="text"
               name="joinDate"
-              value={employeeData.joinDate}
+              value={
+                employeeData.joinDate
+                  ? employeeData.joinDate.toISOString().split("T")[0]
+                  : ""
+              }
               className="text-base bg-transparent border-none outline-none focus:ring-0"
             />
           </div>

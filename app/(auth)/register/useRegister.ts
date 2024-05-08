@@ -1,4 +1,4 @@
-import { Change } from "@/app/constants/Types";
+import { Change } from "@/app/constants/types";
 import { addUser } from "@/redux/slices/user";
 import { useAppDispatch } from "@/redux/storeHook";
 

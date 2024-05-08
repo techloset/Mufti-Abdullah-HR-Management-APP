@@ -22,7 +22,7 @@ const AttendanceChart: React.FC = () => {
   }, [dispatch]);
 
   if (!employees || employees.length === 0) {
-    return <div>No data available</div>;
+    return <div className="text-white">No data available</div>;
   }
 
   const months = [
@@ -132,7 +132,7 @@ const AttendanceChart: React.FC = () => {
       <div className="mb-4 justify-between mt-[25px] flex">
         <div>
           <h4 className="text-xl text-white font-semibold ms-8 ">
-            Employees Started by Month
+            Employees Show By Months
           </h4>
         </div>
       </div>

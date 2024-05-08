@@ -8,7 +8,7 @@ import DatePicker from "react-datepicker";
 import React, { ChangeEvent } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { UploadButtonForImage } from "@/utils/uploadthing";
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 import InputDropDown from "../inputDropDown/InputDropDown";
 
 interface PersonalInformationMainProps {

@@ -1,6 +1,6 @@
 import DOWNLOAD from "../../assets/icons/download 01.svg";
 import VIEW from "../../assets/icons/view.svg";
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 import { fetchEmployees } from "@/redux/slices/employee";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import Image from "next/image";

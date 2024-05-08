@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 
 export default function usePersonalInformation(
   setFormData: React.Dispatch<React.SetStateAction<FormData>>

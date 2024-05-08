@@ -1,6 +1,6 @@
 "use client";
 import PaginationBar from "@/app/components/paginationBar/PaginationBar";
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 import TRASH from "../../assets/icons/trash 01.svg";
 import EDIT from "../../assets/icons/edit.svg";
 import VIEW from "../../assets/icons/view.svg";

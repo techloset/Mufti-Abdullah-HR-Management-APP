@@ -5,7 +5,7 @@ import Image from "next/image";
 import DatePicker from "react-datepicker";
 import React, { ChangeEvent } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 
 interface PersonalInformationMainProps {
   formData: FormData;

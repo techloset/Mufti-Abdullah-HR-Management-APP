@@ -1,4 +1,4 @@
-import { Change } from "@/app/constants/types";
+import { Change } from "../../constants/types";
 import { updateUserPassword } from "@/redux/slices/user";
 import { useAppDispatch } from "@/redux/storeHook";
 import { useSession } from "next-auth/react";

@@ -1,7 +1,7 @@
 import React from "react";
 import DepartmentEmployee from "../departmentEmployee/DepartmentEmployee";
 import Link from "next/link";
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 
 export default function Departmentsection({
   department,

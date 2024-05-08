@@ -1,5 +1,5 @@
 "use client";
-import { User } from "@/app/constants/types";
+import { User } from "../../constants/types";
 import { getSession, signOut } from "next-auth/react";
 import ARROW from "../../assets/icons/direction-down.svg";
 import Image from "next/image";

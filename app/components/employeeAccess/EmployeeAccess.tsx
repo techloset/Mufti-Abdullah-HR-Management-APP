@@ -1,4 +1,4 @@
-import { FormProps } from "@/app/constants/types";
+import { FormProps } from "../../constants/types";
 import React, { ChangeEvent } from "react";
 
 const EmployeeAccess: React.FC<FormProps> = ({ formData, setFormData }) => {

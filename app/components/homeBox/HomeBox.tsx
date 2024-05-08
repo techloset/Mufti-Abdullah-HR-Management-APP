@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import GREEN from "../../assets/icons/Button (4).svg";
-import { HomeBoxProps } from "@/app/constants/types";
+import { HomeBoxProps } from "../../constants/types";
 
 const HomeBox: React.FC<HomeBoxProps> = ({
   iconSrc,

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { UploadDropzone } from "@/utils/uploadthing";
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 
 const Employeedocument = ({
   setFormData,

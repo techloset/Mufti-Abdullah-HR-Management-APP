@@ -1,5 +1,4 @@
 "use client";
-import { FormData } from "@/app/constants/types";
 import { fetchEmployees, updateEmployee } from "@/redux/slices/employee";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import React, { useEffect, useState } from "react";

@@ -6,7 +6,7 @@ import Link from "next/link";
 import PaginationBar from "../paginationBar/PaginationBar";
 import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
 import { deleteEmployee, fetchEmployees } from "@/redux/slices/employee";
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 import SearchBar from "../searchBar/SearchBar";
 import PLUS from "../../assets/icons/add-circle.svg";
 import TRASH from "../../assets/icons/trash 01.svg";

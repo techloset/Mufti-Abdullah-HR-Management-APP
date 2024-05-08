@@ -1,6 +1,6 @@
 "use client";
 
-import { FormData } from "@/app/constants/types";
+import { FormData } from "../../constants/types";
 import PaginationBar from "../paginationBar/PaginationBar";
 import useViewAttendenceTable from "./useViewAttendenceTable";
 import Image from "next/image";

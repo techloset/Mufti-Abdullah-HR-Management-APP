@@ -1,6 +1,6 @@
 "use client";
 
-import { Change } from "@/app/constants/types";
+import { Change } from "../../constants/types";
 import { forgotPassword } from "@/redux/slices/user";
 import { useAppDispatch } from "@/redux/storeHook";
 import { useEffect, useState } from "react";

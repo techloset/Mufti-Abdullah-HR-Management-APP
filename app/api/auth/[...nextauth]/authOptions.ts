@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcrypt";
 import { prisma } from "@/config/prisma";
+import toast from "react-hot-toast";
 
 export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -50,7 +51,7 @@ export const authOptions: AuthOptions = {
           where: { email: profile?.email },
         });
         if (existingUser) {
-          console.log("User already exists:", existingUser);
+          toast.error("User already exists:", existingUser);
         } else {
           try {
             const newUser = await prisma.user.create({
@@ -60,9 +61,8 @@ export const authOptions: AuthOptions = {
                 password: "",
               },
             });
-            console.log(newUser);
-          } catch (error) {
-            console.log("Error creating user:", error);
+          } catch (error: any) {
+            toast.error("Error creating user:" + error.message);
           }
         }
       }

@@ -84,7 +84,6 @@ export default function useAddEmployee() {
     const missingFields: Array<string> = requiredFields.filter(
       (field) => !formData[field]
     );
-    console.log("🚀 ~ handleSubmit ~ missingFields:", missingFields);
 
     if (missingFields.length > 3) {
       return toast.error(

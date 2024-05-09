@@ -9,7 +9,7 @@ export const PUT = async (request: NextRequest) => {
     const userLogin = await prisma.user.findUnique({
       where: { email },
     });
-    console.log("🚀 ~ PUT ~ userLogin:", userLogin);
+
     if (!userLogin) {
       return new NextResponse(JSON.stringify(Error), { status: 400 });
     }

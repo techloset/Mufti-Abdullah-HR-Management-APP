@@ -16,7 +16,7 @@ export const addUser = createAsyncThunk(
   async (userData: State) => {
     try {
       const response = await instance.post("register", userData);
-      console.log("Added new User:", response.data);
+
       return response.data;
     } catch (error: any) {
       console.error("Error adding User:", error);
@@ -34,8 +34,6 @@ export const updateUserPassword = createAsyncThunk(
         ...data,
       });
 
-      console.log("Updated user with id:", email);
-
       return response.data;
     } catch (error: any) {
       console.error("Error updating User:", error);
@@ -51,8 +49,6 @@ export const forgotPassword = createAsyncThunk(
         email,
         ...data,
       });
-
-      console.log("Updated user with id:", email);
 
       return response.data;
     } catch (error: any) {
@@ -82,13 +78,10 @@ const userSLice = createSlice({
       .addCase(addUser.fulfilled, (state, action) => {
         const user = action.payload as User;
         state.user.push(user);
-        console.log("User added successfully:", action.payload);
       })
       .addCase(forgotPassword.fulfilled, (state, action) => {
         const user = action.payload as User;
         state.user.push(user);
-
-        console.log("User added successfully:", action.payload);
       });
   },
 });

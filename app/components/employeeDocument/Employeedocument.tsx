@@ -37,7 +37,6 @@ const Employeedocument = ({
             }}
             endpoint="pdfUploader"
             onClientUploadComplete={(res) => {
-              console.log("Files: ", res);
               handlePdfUpload("appointmentLetter")(res[0].url);
               alert("Upload Completed");
             }}
@@ -66,7 +65,6 @@ const Employeedocument = ({
             }}
             endpoint="pdfUploader"
             onClientUploadComplete={(res) => {
-              console.log("Files: ", res);
               handlePdfUpload("salarySlips")(res[0].url);
               alert("Upload Completed");
             }}
@@ -95,7 +93,6 @@ const Employeedocument = ({
             }}
             endpoint="pdfUploader"
             onClientUploadComplete={(res) => {
-              console.log("Files: ", res);
               handlePdfUpload("relivingLetter")(res[0].url);
               alert("Upload Completed");
             }}
@@ -124,7 +121,6 @@ const Employeedocument = ({
             }}
             endpoint="pdfUploader"
             onClientUploadComplete={(res) => {
-              console.log("Files: ", res);
               handlePdfUpload("experienceLetter")(res[0].url);
               alert("Upload Completed");
             }}

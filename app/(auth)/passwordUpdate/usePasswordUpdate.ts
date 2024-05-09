@@ -12,7 +12,6 @@ export default function usePasswordUpdate() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const currentUser = useSession();
   const currentUserEmail = currentUser.data?.user?.email;
-  console.log("currentUserEmail", currentUserEmail);
 
   const handleChange = (e: Change) => {
     const { name, value } = e.target;
@@ -23,7 +22,6 @@ export default function usePasswordUpdate() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(oldPassword, newPassword);
 
     if (!oldPassword || !newPassword || !confirmPassword) {
       alert("Please fill in all fields.");
@@ -42,7 +40,7 @@ export default function usePasswordUpdate() {
           data: { oldPassword, newPassword },
         })
       );
-      console.log("Password changed successfully.");
+
       toast.success("Password changed successfully.");
     } catch (error) {
       console.error("Error changing password:", error);

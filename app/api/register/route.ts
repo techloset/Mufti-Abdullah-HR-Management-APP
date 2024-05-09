@@ -35,7 +35,6 @@ export const POST = async (request: NextRequest) => {
         },
       });
 
-      console.log("Created user:", user);
       return new NextResponse(JSON.stringify({ data: user, success: true }), {
         status: 200,
       });
@@ -81,7 +80,6 @@ export const PUT = async (request: NextRequest) => {
         },
       });
 
-      console.log("Created user:", user);
       return new NextResponse(JSON.stringify({ data: user, success: true }), {
         status: 200,
       });

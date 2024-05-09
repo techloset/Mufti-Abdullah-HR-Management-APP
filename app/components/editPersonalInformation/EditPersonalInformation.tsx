@@ -22,7 +22,6 @@ export default function EditPersonalInformation({
       [name]: value,
     }));
   };
-  console.log("employeeData", employeeData);
 
   useEffect(() => {
     const fetchData = async () => {

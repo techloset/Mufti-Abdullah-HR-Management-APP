@@ -20,7 +20,6 @@ const PersonalInformationMain: React.FC<PersonalInformationMainProps> = ({
   formData,
   setFormData,
 }) => {
-  console.log("formData", formData);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -67,7 +66,6 @@ const PersonalInformationMain: React.FC<PersonalInformationMainProps> = ({
           }}
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            console.log("Files: ", res[0].url);
             handleImageUpload(res[0].url);
             alert("Upload Completed");
           }}

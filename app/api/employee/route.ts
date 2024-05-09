@@ -76,7 +76,6 @@ export const POST = async (request: NextRequest) => {
         },
       });
 
-      console.log("Created user:", employee);
       return new NextResponse(
         JSON.stringify({ data: employee, success: true }),
         {
@@ -105,7 +104,6 @@ export const PUT = async (request: NextRequest) => {
       data,
     });
 
-    console.log("Updated user:", employee);
     return new NextResponse(JSON.stringify({ data: employee, success: true }), {
       status: 200,
     });
@@ -124,7 +122,6 @@ export const DELETE = async (request: NextRequest) => {
       where: { id },
     });
 
-    console.log("Deleted user with id:", id);
     return new NextResponse(JSON.stringify({ success: true }), {
       status: 200,
     });
@@ -137,7 +134,6 @@ export const GET = async (request: NextRequest) => {
   try {
     const employees = await prisma.employee.findMany();
 
-    console.log("Fetched all employees:", employees);
     return new NextResponse(
       JSON.stringify({ data: employees, success: true }),
       {

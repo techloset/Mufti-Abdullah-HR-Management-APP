@@ -1,5 +1,6 @@
 import { UploadDropzone } from "@/utils/uploadthing";
 import React from "react";
+import toast from "react-hot-toast";
 
 const Dropzone = ({
   content,
@@ -34,9 +35,9 @@ const Dropzone = ({
           }}
           endpoint="pdfUploader"
           onClientUploadComplete={(res) => {
-            console.log("Files: ", res);
             handleImageUpload(res[0].url);
-            alert("Upload Completed");
+
+            toast.success("Upload Completed");
           }}
           onUploadError={(error: Error) => {
             alert(`ERROR! ${error.message}`);

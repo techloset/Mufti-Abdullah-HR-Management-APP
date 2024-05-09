@@ -12,7 +12,6 @@ export default function Departmentsection({
   employees: FormData[];
   employeeIds: string[];
 }) {
-  console.log("employeeIds", employeeIds);
   return (
     <div className=" sm:w-full lg:w-[48%] md:w-full border-[1px] border-secondry px-3 py-2 rounded-lg">
       <div className="flex flex-row  my-3 justify-between">

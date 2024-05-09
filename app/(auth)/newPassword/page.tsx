@@ -13,7 +13,7 @@ export default function Page() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     const otpValue = localStorage.getItem("otpData");
-    console.log("🚀 ~ useEffect ~ otpValue:", otpValue);
+
     if (otpValue !== null) {
       const parsedOtp = JSON.parse(otpValue);
       if (parsedOtp) {
@@ -48,8 +48,6 @@ export default function Page() {
           data: { newPassword },
         })
       );
-
-      console.log("Password changed successfully.");
       toast.success("Password changed successfully.");
     } catch (error) {
       console.error("Error changing password:", error);

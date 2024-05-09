@@ -17,7 +17,7 @@ export default function Page() {
 
   useEffect(() => {
     const otpValue = localStorage.getItem("otpData");
-    console.log("🚀 ~ useEffect ~ otpValue:", otpValue);
+
     if (otpValue !== null) {
       const parsedOtp = JSON.parse(otpValue);
       if (parsedOtp) {

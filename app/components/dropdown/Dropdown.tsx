@@ -40,7 +40,9 @@ const DropDown: React.FC = () => {
           <div className="flex flex-col items-start ms-[5px]">
             {user && (
               <>
-                <div className="text-sm font-semibold">{user.user.email}</div>
+                <div className="text-sm font-semibold">
+                  {user.user.email.slice(0, 10)}
+                </div>
                 <div className="text-[12px] text-[#A2A1A8]">Hr Manager</div>
               </>
             )}
@@ -66,6 +68,11 @@ const DropDown: React.FC = () => {
             <Link href={"/passwordUpdate"}>
               <li className="px-4 py-3 hover:bg-primary cursor-pointer">
                 Change Password
+              </li>
+            </Link>
+            <Link href={"/profileUpdate"}>
+              <li className="px-4 py-3 hover:bg-primary cursor-pointer">
+                Update Profile
               </li>
             </Link>
           </ul>

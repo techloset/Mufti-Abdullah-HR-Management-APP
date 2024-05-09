@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import useAttendence from "./useAttendence";
-import { FormData } from "../..//constants/types";
+import { FormData } from "../../constants/types";
 import USER from "../../assets/icons/Ellipse 1192.svg";
 export default function AttendenceTable() {
   const { employees } = useAttendence();

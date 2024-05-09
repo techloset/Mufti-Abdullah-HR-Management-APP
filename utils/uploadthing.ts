@@ -7,7 +7,6 @@ import {
   generateUploadDropzone,
 } from "@uploadthing/react";
 
-// Use OurFileRouter for PDF uploads
 export const UploadButton = generateUploadButton<OurFileRouter>();
 export const UploadDropzone = generateUploadDropzone<OurFileRouter>();
 

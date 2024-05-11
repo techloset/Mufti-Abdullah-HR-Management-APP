@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "../sidebar/Sidebar";
 import Header from "../header/Header";
 import { UseLayout } from "@/app/(pages)/useLayout";
@@ -13,6 +13,11 @@ export default function LayoutContent({
 }: LayoutContentProps): JSX.Element {
   const { headerProps } = UseLayout();
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.alert("window.alert from client component");
+    }
+  }, []);
   return (
     <div className="flex h-screen bg-black">
       <div className="text-white w-64 flex-shrink-0">

@@ -1,11 +1,18 @@
 "use client";
-
 import { useState, useEffect } from "react";
-import Dashboard from "./(pages)/dashboard/page";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
 import { getSession } from "next-auth/react";
 import { Session } from "next-auth";
+import dynamic from "next/dynamic";
+
+const ClientDashboard = dynamic(
+  () => import("./components/dashboard/Dashboard"),
+  {
+    loading: () => <p>Loading...</p>,
+    ssr: false,
+  }
+);
 
 export default function Home() {
   const [userName, setUserName] = useState<string | null>(null);
@@ -21,6 +28,12 @@ export default function Home() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.alert("window.alert from client component");
+    }
+  }, []);
+
   return (
     <div className="flex h-screen bg-black">
       <div className=" text-white w-64 flex-shrink-0">
@@ -34,7 +47,7 @@ export default function Home() {
           />
         </header>
         <main className="p-4 flex-1 overflow-y-auto">
-          <Dashboard />
+          <ClientDashboard />
         </main>
       </div>
     </div>

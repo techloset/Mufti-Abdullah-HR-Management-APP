@@ -10,7 +10,6 @@ export const UseLayout = () => {
   };
   const router = usePathname();
 
-  const data = getSession();
   switch (router) {
     case "/":
       headerProps = { mainTitle: "HELLO Lucifer", greeting: "Good morning" };

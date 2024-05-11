@@ -36,12 +36,18 @@ export default function ViewEmployeeDocument({
     }
   }, [employees]);
   const handleDownload = (documentName: string) => {
-    const anchor = document.createElement("a");
-    anchor.href = `${documentName}`;
-    anchor.download = documentName;
-    anchor.click();
+    if (typeof window !== "undefined") {
+      const anchor = document.createElement("a");
+      anchor.href = `${documentName}`;
+      anchor.download = documentName;
+      anchor.click();
+    }
   };
-
+  const openInNewTab = (url: string) => {
+    if (typeof window !== "undefined") {
+      window.open(url, "_blank");
+    }
+  };
   return (
     <div className="text-white w-[100%] gap-3 flex flex-row  flex-wrap mt-4">
       <div className="w-[49%] border-b-[1px] border-b-secondry flex justify-between items-center flex-row  text-white bg-transparent space-y-2  p-2.5  border-secondry ">
@@ -52,7 +58,7 @@ export default function ViewEmployeeDocument({
             alt="view"
             className="cursor-pointer"
             onClick={() =>
-              window.open(employeeData?.appointmentLetter, "_blank")
+              openInNewTab(employeeData?.appointmentLetter as string)
             }
           />
           <Image
@@ -72,7 +78,7 @@ export default function ViewEmployeeDocument({
             src={VIEW}
             alt="view"
             className="cursor-pointer"
-            onClick={() => window.open(employeeData?.salarySlips, "_blank")}
+            onClick={() => openInNewTab(employeeData?.salarySlips as string)}
           />
           <Image
             src={DOWNLOAD}
@@ -89,7 +95,7 @@ export default function ViewEmployeeDocument({
             src={VIEW}
             alt="view"
             className="cursor-pointer"
-            onClick={() => window.open(employeeData?.relivingLetter, "_blank")}
+            onClick={() => openInNewTab(employeeData?.relivingLetter as string)}
           />
           <Image
             src={DOWNLOAD}
@@ -109,7 +115,7 @@ export default function ViewEmployeeDocument({
             alt="view"
             className="cursor-pointer"
             onClick={() =>
-              window.open(employeeData?.experienceLetter, "_blank")
+              openInNewTab(employeeData?.experienceLetter as string)
             }
           />
           <Image

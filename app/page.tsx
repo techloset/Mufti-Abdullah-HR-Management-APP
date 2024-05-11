@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.alert("window.alert from client component");
+      window.console.log("window.alert from client component");
     }
   }, []);
 

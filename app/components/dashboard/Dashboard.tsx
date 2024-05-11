@@ -14,7 +14,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.alert("window.alert from client component");
+      window.console.log("window.alert from client component");
     }
   }, []);
 
